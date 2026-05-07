@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Human Future Atlas · 人类未来图谱</title>
+
+<!-- SEO · GEO -->
+<meta name="description" content="A bilingual public-interest atlas of humanity's long-term challenges, civilizational milestones, possible futures, and the actions any person can take today." />
+<meta name="keywords" content="human future, long-term thinking, climate, AI alignment, civilization, public health, biodiversity, ethical technology, education, futures studies, 人类未来" />
+<meta name="author" content="Gewenbo" />
+<link rel="canonical" href="https://human-future-atlas.psyverse.fun/" />
+<link rel="alternate" hreflang="en" href="https://human-future-atlas.psyverse.fun/" />
+<link rel="alternate" hreflang="zh-CN" href="https://human-future-atlas.psyverse.fun/" />
+<link rel="alternate" hreflang="x-default" href="https://human-future-atlas.psyverse.fun/" />
+<meta property="og:title" content="The Human Future Atlas" />
+<meta property="og:description" content="A bilingual atlas of humanity's challenges, milestones, possible futures, and what any person can do today." />
+<meta property="og:url" content="https://human-future-atlas.psyverse.fun/" />
+<meta property="og:site_name" content="Psyverse" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Human Future Atlas" />
+<meta name="twitter:description" content="A bilingual atlas of humanity's long-term challenges, milestones, futures, and actions." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#0a0e1f" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "The Human Future Atlas",
+  "alternateName": "人类未来图谱",
+  "description": "A bilingual public-interest atlas of humanity's long-term challenges, civilizational milestones, possible futures, and personal action.",
+  "url": "https://human-future-atlas.psyverse.fun/",
+  "inLanguage": ["en", "zh-CN"],
+  "author": { "@type": "Person", "name": "Gewenbo", "url": "https://psyverse.fun/" },
+  "publisher": { "@type": "Organization", "name": "Psyverse", "url": "https://psyverse.fun/" }
+}
+</script>
+<!-- /SEO · GEO -->
+
+<!-- Favicon: stylized A inside a soft-gold orbit on deep navy -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23121a36'/><stop offset='1' stop-color='%230a0e1f'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><circle cx='16' cy='16' r='10' fill='none' stroke='%23eab464' stroke-width='1' stroke-dasharray='2 2'/><text x='50%' y='54%' font-family='Georgia,serif' font-size='14' text-anchor='middle' dominant-baseline='central' fill='%23eab464' font-style='italic'>A</text></svg>" />
+
+<!-- Typography: Fraunces (editorial serif), Manrope (UI/body), Noto Serif/Sans SC (Chinese), JetBrains Mono (numerals) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Analytics -->
+<script src="https://analytics-dashboard-two-blue.vercel.app/tracker.js" defer></script>
+
+<style>
+/* ---------- Design tokens ---------- */
+:root {
+  --bg-0: #050813;
+  --bg-1: #0a0e1f;
+  --bg-2: #111733;
+  --bg-3: #18204a;
+  --ink-0: #f6f1e3;
+  --ink-1: #e7e1cc;
+  --ink-2: #b9b4a3;
+  --ink-3: #6e6a5e;
+  --line: rgba(246, 241, 227, 0.08);
+  --line-strong: rgba(246, 241, 227, 0.18);
+  --violet: #7c5cff;
+  --violet-soft: #9b85ff;
+  --cyan: #6fd6e0;
+  --cyan-soft: #a4e9f0;
+  --gold: #eab464;
+  --gold-soft: #f4d29a;
+  --rust: #d2693a;
+  --emerald: #62c5a4;
+  --rose: #d77a8a;
+  --serif: 'Fraunces', 'Noto Serif SC', Georgia, serif;
+  --sans: 'Manrope', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+  --shadow-1: 0 1px 0 rgba(255,255,255,0.04) inset, 0 30px 60px -30px rgba(0,0,0,0.7);
+  --shadow-glow: 0 0 0 1px rgba(124,92,255,0.25), 0 30px 80px -30px rgba(124,92,255,0.45);
+  --max: 1240px;
+}
+
+/* lang=zh swaps default font stacks */
+html[lang="zh"] body { font-family: 'Noto Sans SC', var(--sans); }
+html[lang="zh"] .display, html[lang="zh"] h1, html[lang="zh"] h2, html[lang="zh"] h3, html[lang="zh"] h4, html[lang="zh"] blockquote { font-family: 'Noto Serif SC', var(--serif); }
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg-0);
+  color: var(--ink-1);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
+img, svg { display: block; max-width: 100%; }
+::selection { background: rgba(234, 180, 100, 0.3); color: var(--ink-0); }
+
+/* ---------- Background field ---------- */
+.bg-field {
+  position: fixed; inset: 0; z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124,92,255,0.18), transparent 60%),
+    radial-gradient(ellipse 60% 60% at 90% 30%, rgba(111,214,224,0.10), transparent 60%),
+    radial-gradient(ellipse 60% 60% at 10% 80%, rgba(234,180,100,0.10), transparent 60%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1) 40%, var(--bg-0));
+}
+.bg-field::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+}
+canvas#stars { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.85; }
+
+/* ---------- Scroll progress ---------- */
+.progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--violet), var(--cyan), var(--gold));
+  z-index: 100; transition: width 0.1s linear;
+}
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  background: rgba(5, 8, 19, 0.55);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: var(--max); margin: 0 auto;
+  display: flex; align-items: center; gap: 24px;
+  padding: 14px 24px;
+}
+.brand { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-weight: 500; font-size: 18px; letter-spacing: 0.01em; color: var(--ink-0); }
+.brand .glyph {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--gold);
+  display: grid; place-items: center;
+  background: radial-gradient(circle at 30% 30%, rgba(234,180,100,0.5), transparent 60%);
+  font-family: var(--serif); font-style: italic; color: var(--gold); font-size: 14px;
+}
+.nav-links { display: flex; gap: 4px; flex-wrap: wrap; flex: 1; justify-content: center; }
+.nav-links a {
+  padding: 6px 12px; border-radius: 999px; font-size: 13px; color: var(--ink-2);
+  letter-spacing: 0.02em;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:hover { color: var(--ink-0); background: rgba(255,255,255,0.04); }
+.lang-switch {
+  display: flex; border: 1px solid var(--line-strong); border-radius: 999px; padding: 3px;
+  background: rgba(255,255,255,0.02);
+}
+.lang-switch button {
+  background: transparent; border: 0; padding: 5px 12px; border-radius: 999px;
+  color: var(--ink-2); font-size: 12px; letter-spacing: 0.04em;
+}
+.lang-switch button.active { background: var(--ink-0); color: var(--bg-0); font-weight: 600; }
+.intensity-toggle {
+  background: transparent; border: 1px solid var(--line-strong); border-radius: 999px;
+  width: 34px; height: 34px; display: grid; place-items: center; color: var(--ink-2);
+}
+.intensity-toggle:hover { color: var(--gold); border-color: rgba(234,180,100,0.4); }
+@media (max-width: 900px) { .nav-links { display: none; } }
+
+/* ---------- Layout ---------- */
+section { padding: 120px 24px; position: relative; }
+.wrap { max-width: var(--max); margin: 0 auto; }
+.eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 18px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); display: inline-block; }
+h1.display, .display {
+  font-family: var(--serif); font-weight: 400; font-style: italic;
+  font-size: clamp(40px, 7vw, 88px); line-height: 1.02; letter-spacing: -0.02em;
+  color: var(--ink-0); margin: 0 0 24px;
+}
+h2 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(30px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.015em;
+  color: var(--ink-0); margin: 0 0 18px; max-width: 30ch;
+}
+h3 { font-family: var(--serif); font-weight: 500; font-size: 24px; color: var(--ink-0); margin: 0 0 12px; }
+h4 { font-family: var(--sans); font-weight: 600; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 10px; }
+p { color: var(--ink-2); margin: 0 0 16px; }
+.lede { font-size: 19px; color: var(--ink-1); max-width: 64ch; }
+
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 100vh; display: grid; place-items: center;
+  padding: 120px 24px 80px; overflow: hidden;
+}
+.hero-inner { max-width: 1100px; text-align: center; position: relative; z-index: 2; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 7px 16px; border: 1px solid var(--line-strong); border-radius: 999px;
+  background: rgba(255,255,255,0.02); margin-bottom: 28px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.hero-badge .pulse {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  box-shadow: 0 0 0 0 rgba(234,180,100,0.7); animation: pulse 2.4s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(234,180,100,0.6); }
+  70% { box-shadow: 0 0 0 12px rgba(234,180,100,0); }
+  100% { box-shadow: 0 0 0 0 rgba(234,180,100,0); }
+}
+.hero h1 {
+  font-family: var(--serif); font-weight: 300; font-style: italic;
+  font-size: clamp(42px, 8vw, 104px); line-height: 0.98; letter-spacing: -0.025em;
+  color: var(--ink-0); margin: 0 0 28px;
+}
+.hero h1 em {
+  font-style: italic; color: transparent;
+  background: linear-gradient(120deg, var(--gold-soft), var(--gold) 40%, var(--violet-soft) 80%);
+  -webkit-background-clip: text; background-clip: text;
+}
+.hero p.subtitle { font-size: 19px; color: var(--ink-2); max-width: 680px; margin: 0 auto 44px; }
+.cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 26px; border-radius: 999px; font-size: 14px; font-weight: 500;
+  letter-spacing: 0.02em; transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s;
+  border: 1px solid transparent;
+}
+.btn-primary {
+  background: var(--ink-0); color: var(--bg-0);
+}
+.btn-primary:hover { transform: translateY(-2px); background: var(--gold-soft); }
+.btn-ghost {
+  border-color: var(--line-strong); color: var(--ink-1); background: rgba(255,255,255,0.02);
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold-soft); transform: translateY(-2px); }
+.btn .arrow { transition: transform 0.2s; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* hero orbital lines */
+.orbits { position: absolute; inset: 0; pointer-events: none; opacity: 0.4; }
+.orbits svg { width: 100%; height: 100%; }
+.orbit-ring { fill: none; stroke: rgba(246,241,227,0.07); stroke-dasharray: 2 6; }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.orbit-spin { transform-origin: 50% 50%; animation: spin-slow 80s linear infinite; }
+
+/* ---------- Section divider ---------- */
+.divider {
+  height: 1px; max-width: var(--max); margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+}
+
+/* ---------- Mission ---------- */
+.mission {
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start;
+}
+@media (max-width: 900px) { .mission { grid-template-columns: 1fr; gap: 32px; } }
+blockquote.mission-quote {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: clamp(28px, 3.4vw, 44px); line-height: 1.15; color: var(--ink-0);
+  border-left: 2px solid var(--gold); padding-left: 28px; margin: 0 0 32px;
+}
+.mission-pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 32px; }
+@media (max-width: 600px) { .mission-pillars { grid-template-columns: 1fr; } }
+.mission-pillar {
+  padding: 22px;
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  background: rgba(255,255,255,0.02);
+}
+.mission-pillar h4 { color: var(--gold-soft); }
+.mission-pillar p { font-size: 14px; margin: 0; }
+
+/* ---------- Section header ---------- */
+.section-head { max-width: 760px; margin-bottom: 56px; }
+.section-head .lede { font-size: 18px; }
+
+/* ---------- Challenges grid ---------- */
+.challenges {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;
+}
+.challenge-card {
+  position: relative; padding: 26px;
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  backdrop-filter: blur(10px);
+  cursor: pointer; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  overflow: hidden;
+}
+.challenge-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(124,92,255,0.18), transparent 60%);
+  opacity: 0; transition: opacity 0.3s;
+  pointer-events: none;
+}
+.challenge-card:hover { transform: translateY(-4px); border-color: var(--line-strong); box-shadow: var(--shadow-glow); }
+.challenge-card:hover::before { opacity: 1; }
+.challenge-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--line-strong);
+  margin-bottom: 18px; color: var(--gold-soft);
+}
+.challenge-card h3 { font-size: 21px; }
+.challenge-card .desc { font-size: 14px; color: var(--ink-2); margin-bottom: 16px; }
+.meters { display: flex; gap: 14px; margin: 14px 0 12px; }
+.meter { flex: 1; }
+.meter-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: 6px;
+}
+.meter-bar { height: 4px; background: rgba(255,255,255,0.05); border-radius: 99px; overflow: hidden; }
+.meter-fill { height: 100%; border-radius: 99px; transition: width 0.6s; }
+.fill-severity { background: linear-gradient(90deg, var(--rust), var(--rose)); }
+.fill-opportunity { background: linear-gradient(90deg, var(--cyan), var(--emerald)); }
+.challenge-q {
+  font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--ink-1);
+  padding-top: 14px; border-top: 1px dashed var(--line);
+}
+.challenge-card .more {
+  font-size: 12px; color: var(--gold-soft); margin-top: 12px;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  position: fixed; inset: 0; display: none; place-items: center;
+  background: rgba(2,4,12,0.78); backdrop-filter: blur(8px);
+  z-index: 200; padding: 24px;
+}
+.modal.open { display: grid; }
+.modal-content {
+  max-width: 720px; width: 100%; max-height: 86vh; overflow-y: auto;
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid var(--line-strong); border-radius: var(--r-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-1);
+  animation: rise 0.3s ease;
+}
+@keyframes rise { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-close {
+  position: absolute; top: 24px; right: 24px;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--line-strong); background: rgba(0,0,0,0.4);
+  color: var(--ink-1); display: grid; place-items: center;
+}
+.modal-close:hover { color: var(--gold); }
+.modal h3 { font-size: 30px; margin-bottom: 12px; }
+.modal .meta-pills { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 22px; }
+.pill {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 99px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--line-strong); color: var(--ink-2);
+}
+.modal .deep p { font-size: 15px; }
+.modal .deep h4 { color: var(--gold-soft); margin-top: 18px; }
+
+/* ---------- Timeline ---------- */
+.timeline-rail {
+  position: relative; padding: 20px 0 0;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.timeline-rail::-webkit-scrollbar { height: 8px; }
+.timeline-rail::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 99px; }
+.timeline-track {
+  display: flex; gap: 0; min-width: max-content; padding: 60px 24px 24px;
+  position: relative;
+}
+.timeline-track::before {
+  content: ''; position: absolute; left: 24px; right: 24px; top: 90px;
+  height: 1px; background: linear-gradient(90deg, transparent, var(--line-strong), var(--line-strong), transparent);
+}
+.tl-item {
+  scroll-snap-align: start; min-width: 280px; padding: 0 18px;
+  position: relative; cursor: pointer;
+}
+.tl-item .dot {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--bg-0); border: 2px solid var(--gold);
+  transition: transform 0.25s, background 0.25s, box-shadow 0.25s;
+}
+.tl-item:hover .dot { transform: translateX(-50%) scale(1.4); background: var(--gold); box-shadow: 0 0 20px rgba(234,180,100,0.6); }
+.tl-item.active .dot { background: var(--gold); box-shadow: 0 0 24px rgba(234,180,100,0.8); }
+.tl-year { font-family: var(--mono); color: var(--gold-soft); font-size: 13px; margin-top: 36px; text-align: center; }
+.tl-title { font-family: var(--serif); font-size: 19px; color: var(--ink-0); margin: 8px 0 6px; text-align: center; }
+.tl-snippet { font-size: 13px; color: var(--ink-2); text-align: center; min-height: 3.6em; }
+.timeline-detail {
+  margin-top: 32px; padding: 30px;
+  border: 1px solid var(--line-strong); border-radius: var(--r-md);
+  background: rgba(255,255,255,0.02);
+  min-height: 140px;
+}
+.timeline-detail .year-big {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; color: var(--gold);
+  text-transform: uppercase;
+}
+.timeline-detail h3 { margin: 6px 0 14px; }
+
+/* ---------- Future scenarios ---------- */
+.scenarios { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
+.scenario {
+  position: relative; padding: 30px; border-radius: var(--r-md);
+  border: 1px solid var(--line); overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.scenario:hover { transform: translateY(-4px); }
+.scenario .tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  margin-bottom: 14px; display: inline-block;
+}
+.scenario h3 { font-size: 24px; }
+.scenario p.s-desc { font-size: 14px; }
+.scenario .s-section { margin-top: 16px; }
+.scenario .s-section h4 { font-size: 11px; letter-spacing: 0.14em; }
+.scenario ul { padding-left: 18px; margin: 0; font-size: 13px; color: var(--ink-2); }
+.scenario li { margin-bottom: 4px; }
+
+.scenario.dystopian-1 { background: linear-gradient(160deg, rgba(210,105,58,0.10), rgba(0,0,0,0.4)); }
+.scenario.dystopian-1 .tag { color: var(--rust); }
+.scenario.dystopian-2 { background: linear-gradient(160deg, rgba(215,122,138,0.10), rgba(0,0,0,0.4)); }
+.scenario.dystopian-2 .tag { color: var(--rose); }
+.scenario.utopian-1 { background: linear-gradient(160deg, rgba(98,197,164,0.10), rgba(0,0,0,0.4)); }
+.scenario.utopian-1 .tag { color: var(--emerald); }
+.scenario.utopian-2 { background: linear-gradient(160deg, rgba(124,92,255,0.10), rgba(111,214,224,0.06)); }
+.scenario.utopian-2 .tag { color: var(--cyan); }
+
+/* ---------- Principles ---------- */
+.principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 4px;
+  border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden;
+  background: var(--line);
+}
+.principle {
+  padding: 32px; background: var(--bg-1);
+  transition: background 0.3s;
+}
+.principle:hover { background: var(--bg-2); }
+.principle .num {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--gold);
+  margin-bottom: 14px; display: block;
+}
+.principle h3 { font-size: 22px; }
+.principle .ex {
+  margin-top: 14px; padding: 12px 14px;
+  border-left: 2px solid var(--violet); background: rgba(124,92,255,0.06);
+  font-size: 13px; color: var(--ink-1); border-radius: 0 6px 6px 0;
+}
+
+/* ---------- Action planner ---------- */
+.planner {
+  border: 1px solid var(--line-strong); border-radius: var(--r-lg);
+  background: linear-gradient(160deg, rgba(124,92,255,0.06), rgba(0,0,0,0.3));
+  padding: 44px;
+}
+.interest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 26px 0; }
+.interest {
+  padding: 14px 16px;
+  border: 1px solid var(--line-strong); border-radius: var(--r-md);
+  background: rgba(255,255,255,0.02);
+  display: flex; align-items: center; gap: 10px;
+  transition: all 0.2s;
+}
+.interest:hover { border-color: var(--gold); background: rgba(234,180,100,0.05); }
+.interest input { accent-color: var(--gold); }
+.interest label { cursor: pointer; flex: 1; font-size: 14px; }
+.plan-result {
+  margin-top: 28px; padding: 30px;
+  border-radius: var(--r-md);
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--line-strong);
+  display: none;
+}
+.plan-result.shown { display: block; animation: rise 0.4s ease; }
+.plan-row { display: flex; gap: 18px; padding: 14px 0; border-bottom: 1px dashed var(--line); }
+.plan-row:last-child { border-bottom: 0; }
+.plan-icon {
+  flex: 0 0 36px; width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(234,180,100,0.1); border: 1px solid rgba(234,180,100,0.3);
+  color: var(--gold); display: grid; place-items: center;
+}
+.plan-cell h4 { color: var(--gold-soft); margin-bottom: 4px; }
+.plan-cell p { font-size: 14px; color: var(--ink-1); margin: 0; }
+
+/* ---------- Dashboard ---------- */
+.dashboard-note {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+  color: var(--ink-3); padding: 8px 14px; border: 1px dashed var(--line-strong);
+  border-radius: 99px; display: inline-block; margin-bottom: 24px;
+}
+.dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.dash-card {
+  padding: 26px;
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  background: rgba(255,255,255,0.02);
+}
+.dash-card h4 { color: var(--ink-2); }
+.dash-card .figure {
+  font-family: var(--serif); font-size: 52px; font-weight: 300; line-height: 1;
+  color: var(--ink-0); display: flex; align-items: baseline; gap: 6px; margin: 8px 0 14px;
+}
+.dash-card .figure .unit { font-size: 18px; color: var(--gold-soft); font-family: var(--sans); font-weight: 500; }
+.dash-card .delta {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--emerald);
+  margin-bottom: 12px;
+}
+.dash-card .delta.down { color: var(--gold-soft); }
+.dash-card .ctx { font-size: 13px; color: var(--ink-2); margin: 0; }
+.bar-mini {
+  height: 6px; background: rgba(255,255,255,0.05); border-radius: 99px; margin: 14px 0;
+  overflow: hidden;
+}
+.bar-mini-fill {
+  height: 100%; background: linear-gradient(90deg, var(--cyan), var(--emerald));
+  border-radius: 99px; width: 0; transition: width 1.4s ease;
+}
+
+/* ---------- Stories ---------- */
+.stories { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.story {
+  position: relative; padding: 30px;
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  transition: transform 0.25s, border-color 0.25s;
+}
+.story:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+.story .meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 12px;
+}
+.story h3 { font-size: 21px; }
+.story .narrative { font-size: 14px; color: var(--ink-1); }
+.story .lesson {
+  margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--line);
+  font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--gold-soft);
+}
+
+/* ---------- Reflection wall ---------- */
+.wall {
+  border: 1px solid var(--line-strong); border-radius: var(--r-lg);
+  padding: 44px;
+  background: linear-gradient(160deg, rgba(111,214,224,0.05), rgba(0,0,0,0.3));
+}
+.wall textarea {
+  width: 100%; min-height: 110px;
+  background: rgba(0,0,0,0.3); color: var(--ink-0);
+  border: 1px solid var(--line-strong); border-radius: var(--r-md);
+  padding: 16px 18px; resize: vertical;
+  font-family: var(--sans); font-size: 15px; line-height: 1.5;
+}
+.wall textarea:focus { outline: none; border-color: var(--gold); }
+.wall .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+.wall .privacy { font-size: 12px; color: var(--ink-3); flex: 1; min-width: 200px; }
+.wall-feed { margin-top: 30px; display: grid; gap: 12px; }
+.reflection {
+  padding: 16px 20px; border-radius: var(--r-md);
+  border: 1px solid var(--line); background: rgba(255,255,255,0.02);
+  font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--ink-1);
+  position: relative; padding-left: 50px;
+  animation: rise 0.4s ease;
+}
+.reflection::before {
+  content: '“'; position: absolute; left: 16px; top: 8px;
+  font-size: 36px; color: var(--gold); font-family: var(--serif);
+}
+
+/* ---------- Resource library ---------- */
+.filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.filter-btn {
+  padding: 8px 16px; border-radius: 99px;
+  border: 1px solid var(--line-strong); background: rgba(255,255,255,0.02);
+  color: var(--ink-2); font-size: 13px; letter-spacing: 0.04em;
+  transition: all 0.2s;
+}
+.filter-btn:hover { color: var(--ink-0); border-color: var(--gold); }
+.filter-btn.active { background: var(--ink-0); color: var(--bg-0); border-color: var(--ink-0); }
+.resources { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.resource {
+  padding: 22px;
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  background: rgba(255,255,255,0.02);
+  transition: transform 0.2s, border-color 0.2s;
+}
+.resource:hover { transform: translateY(-2px); border-color: var(--line-strong); }
+.resource .top { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+.resource .cat {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--gold);
+  text-transform: uppercase;
+}
+.resource .time { font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
+.resource h3 { font-size: 17px; font-family: var(--sans); font-weight: 600; line-height: 1.3; margin-bottom: 8px; color: var(--ink-0); }
+.resource .desc { font-size: 13px; color: var(--ink-2); margin-bottom: 10px; }
+.resource .diff {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: var(--ink-3);
+  text-transform: uppercase;
+}
+
+/* ---------- FAQ ---------- */
+.faqs { max-width: 860px; margin: 0 auto; }
+.faq {
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+}
+.faq summary {
+  list-style: none; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  font-family: var(--serif); font-size: 21px; color: var(--ink-0);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: '+'; font-family: var(--serif); font-size: 28px; color: var(--gold);
+  transition: transform 0.3s;
+}
+.faq[open] summary::after { transform: rotate(45deg); }
+.faq .ans { padding-top: 14px; color: var(--ink-2); font-size: 15px; line-height: 1.7; }
+
+/* ---------- Footer ---------- */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 60px 24px 40px;
+  margin-top: 60px;
+  background: rgba(0,0,0,0.4);
+}
+.foot-grid {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px;
+}
+@media (max-width: 800px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 500px) { .foot-grid { grid-template-columns: 1fr; } }
+footer h5 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-2); font-family: var(--mono); font-weight: 500; margin: 0 0 14px; }
+footer ul { list-style: none; padding: 0; margin: 0; }
+footer li { margin-bottom: 8px; }
+footer a { color: var(--ink-2); font-size: 14px; }
+footer a:hover { color: var(--gold-soft); }
+.foot-bottom {
+  max-width: var(--max); margin: 40px auto 0; padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+  font-size: 12px; color: var(--ink-3);
+}
+
+/* ---------- Reduced intensity mode ---------- */
+body.calm canvas#stars { display: none; }
+body.calm .bg-field { filter: brightness(0.85); }
+body.calm .orbits { display: none; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-field" aria-hidden="true"></div>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="glyph">A</span>
+      <span data-i18n="brand">The Human Future Atlas</span>
+    </a>
+    <div class="nav-links">
+      <a href="#mission" data-i18n="nav.mission">Mission</a>
+      <a href="#challenges" data-i18n="nav.challenges">Challenges</a>
+      <a href="#timeline" data-i18n="nav.timeline">Timeline</a>
+      <a href="#scenarios" data-i18n="nav.scenarios">Futures</a>
+      <a href="#principles" data-i18n="nav.principles">Principles</a>
+      <a href="#planner" data-i18n="nav.planner">Action</a>
+      <a href="#dashboard" data-i18n="nav.dashboard">Dashboard</a>
+      <a href="#stories" data-i18n="nav.stories">Stories</a>
+      <a href="#wall" data-i18n="nav.wall">Reflect</a>
+      <a href="#resources" data-i18n="nav.resources">Library</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </div>
+    <button class="intensity-toggle" id="intensityBtn" aria-label="Toggle background intensity" title="Toggle ambient intensity">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>
+    </button>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button data-lang="en" class="active" aria-pressed="true">EN</button>
+      <button data-lang="zh" aria-pressed="false">中文</button>
+    </div>
+  </div>
+</nav>
+
+<a id="top"></a>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="orbits" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <g class="orbit-spin">
+        <ellipse class="orbit-ring" cx="600" cy="400" rx="540" ry="180" />
+        <ellipse class="orbit-ring" cx="600" cy="400" rx="420" ry="240" transform="rotate(20 600 400)" />
+        <ellipse class="orbit-ring" cx="600" cy="400" rx="320" ry="320" />
+        <ellipse class="orbit-ring" cx="600" cy="400" rx="220" ry="380" transform="rotate(-15 600 400)" />
+      </g>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="pulse"></span>
+      <span data-i18n="hero.badge">2026 – 2100 · The Century of Choice</span>
+    </div>
+    <h1 class="display">
+      <span data-i18n-html="hero.headline">The future is not a place we arrive — it is a <em>shape we forge together</em>.</span>
+    </h1>
+    <p class="subtitle" data-i18n="hero.sub">A bilingual atlas of humanity's long-term challenges, civilizational milestones, possible futures, and the actions any one person can take, today.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#challenges">
+        <span data-i18n="hero.ctaPrimary">Explore the atlas</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="btn btn-ghost" href="#planner">
+        <span data-i18n="hero.ctaSecondary">Build your action plan</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ MISSION ============ -->
+<section id="mission">
+  <div class="wrap mission">
+    <div>
+      <span class="eyebrow" data-i18n="mission.eyebrow">Mission</span>
+      <h2 data-i18n="mission.title">A future built, not awaited.</h2>
+    </div>
+    <div>
+      <blockquote class="mission-quote" data-i18n="mission.quote">The next hundred years will not be inherited. They will be assembled — out of the choices, restraints, and imaginations of people alive right now.</blockquote>
+      <p class="lede" data-i18n="mission.body">This atlas is a public, non-commercial space for thinking carefully about the long arc of human civilization. It collects what we know about the challenges ahead, what we have already overcome, what we might still become, and what one person can do this afternoon. It is a museum, a library, and a quiet workshop — open to anyone, in any language they read.</p>
+      <div class="mission-pillars">
+        <div class="mission-pillar">
+          <h4 data-i18n="mission.p1.t">Long-term</h4>
+          <p data-i18n="mission.p1.b">Decisions framed by centuries, not quarters.</p>
+        </div>
+        <div class="mission-pillar">
+          <h4 data-i18n="mission.p2.t">Plural</h4>
+          <p data-i18n="mission.p2.b">Many cultures, languages, and futures held side by side.</p>
+        </div>
+        <div class="mission-pillar">
+          <h4 data-i18n="mission.p3.t">Honest</h4>
+          <p data-i18n="mission.p3.b">Hopeful where hope is earned; sober where it is not.</p>
+        </div>
+        <div class="mission-pillar">
+          <h4 data-i18n="mission.p4.t">Actionable</h4>
+          <p data-i18n="mission.p4.b">Every idea returns, eventually, to something a person can do.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ CHALLENGES ============ -->
+<section id="challenges">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="ch.eyebrow">Atlas · 12 Challenges</span>
+      <h2 data-i18n="ch.title">Twelve long shadows, twelve open doors.</h2>
+      <p class="lede" data-i18n="ch.intro">Each card pairs a defining 21st-century challenge with the opportunity hidden inside it. Severity measures how badly inaction would hurt; opportunity measures how much progress is still possible. Open any card for a deeper read.</p>
+    </div>
+    <div class="challenges" id="challengeGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ TIMELINE ============ -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="tl.eyebrow">Timeline · Long memory</span>
+      <h2 data-i18n="tl.title">A short walk through a long story.</h2>
+      <p class="lede" data-i18n="tl.intro">Twelve thresholds in the human project — from the first warm flame to the civilizations we have not yet built. Tap or click any milestone for a longer reading.</p>
+    </div>
+    <div class="timeline-rail" id="timelineRail">
+      <div class="timeline-track" id="timelineTrack"></div>
+    </div>
+    <div class="timeline-detail" id="timelineDetail" aria-live="polite"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ FUTURE SCENARIOS ============ -->
+<section id="scenarios">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="sc.eyebrow">Possible Futures</span>
+      <h2 data-i18n="sc.title">Four worlds we could still become.</h2>
+      <p class="lede" data-i18n="sc.intro">No future is inevitable. These four are useful sketches — not predictions. Each is alive in the choices being made this decade. Read them as warnings, as invitations, or as both.</p>
+    </div>
+    <div class="scenarios" id="scenarioGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ PRINCIPLES ============ -->
+<section id="principles">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="pr.eyebrow">Ethical Technology</span>
+      <h2 data-i18n="pr.title">Eight principles for technology that serves people.</h2>
+      <p class="lede" data-i18n="pr.intro">Powerful tools always sit inside a moral frame, whether we name it or not. These principles are a starting frame — concrete enough to argue with, simple enough to remember at 2 a.m. on a hard launch night.</p>
+    </div>
+    <div class="principles" id="principleGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ ACTION PLANNER ============ -->
+<section id="planner">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="pl.eyebrow">Personal Action Planner</span>
+      <h2 data-i18n="pl.title">A small plan, sized to a single person.</h2>
+      <p class="lede" data-i18n="pl.intro">Pick the areas that matter most to you. The atlas will assemble a five-step plan — one thing for today, this week, this month, plus a thing to read and a question to bring to dinner. It runs entirely in your browser.</p>
+    </div>
+    <div class="planner">
+      <h3 data-i18n="pl.choose">Choose your interests</h3>
+      <div class="interest-grid" id="interestGrid"></div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+        <button class="btn btn-primary" id="genPlan">
+          <span data-i18n="pl.generate">Generate my plan</span>
+          <span class="arrow">→</span>
+        </button>
+        <button class="btn btn-ghost" id="clearPlan" data-i18n="pl.clear">Clear</button>
+      </div>
+      <div class="plan-result" id="planResult" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ DASHBOARD ============ -->
+<section id="dashboard">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="db.eyebrow">Global Impact Dashboard</span>
+      <h2 data-i18n="db.title">Where the long curves are bending.</h2>
+      <p class="lede" data-i18n="db.intro">Six familiar measures of human flourishing, presented as illustrative sample data — directionally accurate, intentionally rounded. The point is not the third decimal; the point is the shape of the curve.</p>
+      <div class="dashboard-note" data-i18n="db.note">⚠ Illustrative sample data · not live</div>
+    </div>
+    <div class="dash-grid" id="dashGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ STORIES OF HOPE ============ -->
+<section id="stories">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="st.eyebrow">Stories of Hope</span>
+      <h2 data-i18n="st.title">Small windows on what people actually do.</h2>
+      <p class="lede" data-i18n="st.intro">Six short, generalized stories drawn from how cooperation, repair, and quiet civic work tend to unfold. None are biographies. All are recognisable.</p>
+    </div>
+    <div class="stories" id="storyGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ REFLECTION WALL ============ -->
+<section id="wall">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="wl.eyebrow">Reflection Wall</span>
+      <h2 data-i18n="wl.title">What kind of future do you want to help build?</h2>
+      <p class="lede" data-i18n="wl.intro">Write a sentence, a fragment, or a wish. Your reflection appears on this page in your browser only — nothing leaves your device, nothing is saved to any server.</p>
+    </div>
+    <div class="wall">
+      <textarea id="reflectionInput" maxlength="280" placeholder=""></textarea>
+      <div class="row">
+        <span class="privacy" data-i18n="wl.privacy">Private to your browser. Cleared when you close this tab. No analytics, no database, no account.</span>
+        <button class="btn btn-primary" id="submitReflection">
+          <span data-i18n="wl.submit">Add to the wall</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+      <div class="wall-feed" id="wallFeed"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ RESOURCES ============ -->
+<section id="resources">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="rs.eyebrow">Resource Library</span>
+      <h2 data-i18n="rs.title">Things to read, watch, practice, teach, discuss, build.</h2>
+      <p class="lede" data-i18n="rs.intro">A starter shelf of general suggestions — categories rather than links. Use the filters to find a way in that fits your hour, your week, your year.</p>
+    </div>
+    <div class="filter-bar" id="filterBar"></div>
+    <div class="resources" id="resourceGrid"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="fq.eyebrow">FAQ</span>
+      <h2 data-i18n="fq.title">Honest answers to fair questions.</h2>
+    </div>
+    <div class="faqs" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="brand" style="margin-bottom: 14px;">
+        <span class="glyph">A</span>
+        <span data-i18n="brand">The Human Future Atlas</span>
+      </div>
+      <p style="font-size:14px;" data-i18n="foot.tag">A bilingual public-interest atlas of humanity's long-term challenges, milestones, possible futures, and the work of building a livable century.</p>
+    </div>
+    <div>
+      <h5 data-i18n="foot.explore">Explore</h5>
+      <ul>
+        <li><a href="#challenges" data-i18n="nav.challenges">Challenges</a></li>
+        <li><a href="#timeline" data-i18n="nav.timeline">Timeline</a></li>
+        <li><a href="#scenarios" data-i18n="nav.scenarios">Futures</a></li>
+        <li><a href="#principles" data-i18n="nav.principles">Principles</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 data-i18n="foot.do">Do</h5>
+      <ul>
+        <li><a href="#planner" data-i18n="nav.planner">Action planner</a></li>
+        <li><a href="#wall" data-i18n="nav.wall">Reflect</a></li>
+        <li><a href="#resources" data-i18n="nav.resources">Library</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 data-i18n="foot.about">About</h5>
+      <ul>
+        <li><a href="https://psyverse.fun" target="_blank" rel="noopener">Psyverse</a></li>
+        <li><a href="https://github.com/gewenbo888/human-future-atlas" target="_blank" rel="noopener">Source on GitHub</a></li>
+        <li><span data-i18n="foot.licence">Public-interest, non-commercial</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 · <span data-i18n="brand">The Human Future Atlas</span></span>
+    <span data-i18n="foot.note">Static, no backend, no tracking beyond aggregate visit counts.</span>
+  </div>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-content" id="modalContent">
+    <button class="modal-close" id="modalClose" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M6 18L18 6"/></svg>
+    </button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   THE HUMAN FUTURE ATLAS · single-file static frontend
+   ----------------------------------------------------------
+   - Pure HTML / CSS / vanilla JS, no backend, no APIs.
+   - Bilingual (EN / 中文) via i18n dictionaries.
+   - All content rendered from data tables; UI is built once,
+     then re-rendered on language switch.
+   ============================================================ */
+
+/* ---------- 1. i18n DICTIONARIES ---------- */
+const I18N = {
+  en: {
+    brand: "The Human Future Atlas",
+    "nav.mission": "Mission",
+    "nav.challenges": "Challenges",
+    "nav.timeline": "Timeline",
+    "nav.scenarios": "Futures",
+    "nav.principles": "Principles",
+    "nav.planner": "Action",
+    "nav.dashboard": "Dashboard",
+    "nav.stories": "Stories",
+    "nav.wall": "Reflect",
+    "nav.resources": "Library",
+    "nav.faq": "FAQ",
+    "hero.badge": "2026 – 2100 · The Century of Choice",
+    "hero.headline": "The future is not a place we arrive — it is a <em>shape we forge together</em>.",
+    "hero.sub": "A bilingual atlas of humanity's long-term challenges, civilizational milestones, possible futures, and the actions any one person can take, today.",
+    "hero.ctaPrimary": "Explore the atlas",
+    "hero.ctaSecondary": "Build your action plan",
+    "mission.eyebrow": "Mission",
+    "mission.title": "A future built, not awaited.",
+    "mission.quote": "The next hundred years will not be inherited. They will be assembled — out of the choices, restraints, and imaginations of people alive right now.",
+    "mission.body": "This atlas is a public, non-commercial space for thinking carefully about the long arc of human civilization. It collects what we know about the challenges ahead, what we have already overcome, what we might still become, and what one person can do this afternoon. It is a museum, a library, and a quiet workshop — open to anyone, in any language they read.",
+    "mission.p1.t": "Long-term",
+    "mission.p1.b": "Decisions framed by centuries, not quarters.",
+    "mission.p2.t": "Plural",
+    "mission.p2.b": "Many cultures, languages, and futures held side by side.",
+    "mission.p3.t": "Honest",
+    "mission.p3.b": "Hopeful where hope is earned; sober where it is not.",
+    "mission.p4.t": "Actionable",
+    "mission.p4.b": "Every idea returns, eventually, to something a person can do.",
+    "ch.eyebrow": "Atlas · 12 Challenges",
+    "ch.title": "Twelve long shadows, twelve open doors.",
+    "ch.intro": "Each card pairs a defining 21st-century challenge with the opportunity hidden inside it. Severity measures how badly inaction would hurt; opportunity measures how much progress is still possible. Open any card for a deeper read.",
+    "ch.severity": "Severity",
+    "ch.opportunity": "Opportunity",
+    "ch.more": "Open the long view →",
+    "tl.eyebrow": "Timeline · Long memory",
+    "tl.title": "A short walk through a long story.",
+    "tl.intro": "Twelve thresholds in the human project — from the first warm flame to the civilizations we have not yet built. Tap or click any milestone for a longer reading.",
+    "sc.eyebrow": "Possible Futures",
+    "sc.title": "Four worlds we could still become.",
+    "sc.intro": "No future is inevitable. These four are useful sketches — not predictions. Each is alive in the choices being made this decade. Read them as warnings, as invitations, or as both.",
+    "sc.warning": "Warning signs",
+    "sc.hopeful": "Hopeful signs",
+    "sc.indiv": "What individuals can do",
+    "sc.inst": "What institutions can do",
+    "pr.eyebrow": "Ethical Technology",
+    "pr.title": "Eight principles for technology that serves people.",
+    "pr.intro": "Powerful tools always sit inside a moral frame, whether we name it or not. These principles are a starting frame — concrete enough to argue with, simple enough to remember at 2 a.m. on a hard launch night.",
+    "pr.example": "Example",
+    "pl.eyebrow": "Personal Action Planner",
+    "pl.title": "A small plan, sized to a single person.",
+    "pl.intro": "Pick the areas that matter most to you. The atlas will assemble a five-step plan — one thing for today, this week, this month, plus a thing to read and a question to bring to dinner. It runs entirely in your browser.",
+    "pl.choose": "Choose your interests",
+    "pl.generate": "Generate my plan",
+    "pl.clear": "Clear",
+    "pl.today": "Today",
+    "pl.week": "This week",
+    "pl.month": "This month",
+    "pl.learn": "Read or watch",
+    "pl.talk": "Conversation prompt",
+    "pl.empty": "Pick at least one interest above, then press Generate.",
+    "db.eyebrow": "Global Impact Dashboard",
+    "db.title": "Where the long curves are bending.",
+    "db.intro": "Six familiar measures of human flourishing, presented as illustrative sample data — directionally accurate, intentionally rounded. The point is not the third decimal; the point is the shape of the curve.",
+    "db.note": "⚠ Illustrative sample data · not live",
+    "st.eyebrow": "Stories of Hope",
+    "st.title": "Small windows on what people actually do.",
+    "st.intro": "Six short, generalized stories drawn from how cooperation, repair, and quiet civic work tend to unfold. None are biographies. All are recognisable.",
+    "st.lesson": "Lesson",
+    "wl.eyebrow": "Reflection Wall",
+    "wl.title": "What kind of future do you want to help build?",
+    "wl.intro": "Write a sentence, a fragment, or a wish. Your reflection appears on this page in your browser only — nothing leaves your device, nothing is saved to any server.",
+    "wl.placeholder": "Write what you would like the next hundred years to feel like…",
+    "wl.privacy": "Private to your browser. Cleared when you close this tab. No analytics, no database, no account.",
+    "wl.submit": "Add to the wall",
+    "rs.eyebrow": "Resource Library",
+    "rs.title": "Things to read, watch, practice, teach, discuss, build.",
+    "rs.intro": "A starter shelf of general suggestions — categories rather than links. Use the filters to find a way in that fits your hour, your week, your year.",
+    "rs.all": "All",
+    "fq.eyebrow": "FAQ",
+    "fq.title": "Honest answers to fair questions.",
+    "foot.tag": "A bilingual public-interest atlas of humanity's long-term challenges, milestones, possible futures, and the work of building a livable century.",
+    "foot.explore": "Explore",
+    "foot.do": "Do",
+    "foot.about": "About",
+    "foot.licence": "Public-interest, non-commercial",
+    "foot.note": "Static, no backend, no tracking beyond aggregate visit counts.",
+    "diff.beginner": "Beginner",
+    "diff.intermediate": "Intermediate",
+    "diff.advanced": "Advanced",
+    "time.minutes": "min",
+    "time.hours": "hr",
+    "time.weeks": "weeks",
+    "time.lifelong": "lifelong"
+  },
+  zh: {
+    brand: "人类未来图谱",
+    "nav.mission": "使命",
+    "nav.challenges": "挑战",
+    "nav.timeline": "时间线",
+    "nav.scenarios": "未来情境",
+    "nav.principles": "原则",
+    "nav.planner": "行动计划",
+    "nav.dashboard": "影响仪表",
+    "nav.stories": "希望故事",
+    "nav.wall": "反思墙",
+    "nav.resources": "资源馆",
+    "nav.faq": "常见问题",
+    "hero.badge": "2026 – 2100 · 抉择之世纪",
+    "hero.headline": "未来不是我们到达的地方，而是<em>我们共同锻造的形状</em>。",
+    "hero.sub": "一份双语的人类长期挑战图谱：文明里程碑、可能的未来，以及任何一个人今天就能采取的行动。",
+    "hero.ctaPrimary": "进入图谱",
+    "hero.ctaSecondary": "制定我的行动计划",
+    "mission.eyebrow": "使命",
+    "mission.title": "未来是建造的，不是等待的。",
+    "mission.quote": "未来的一百年不会是被继承的，而会是被组装的——由今天活着的人们的选择、克制与想象拼接而成。",
+    "mission.body": "这是一个公共的、非商业的空间，用于慎重地思考人类文明的长弧。它收集我们对前路的认识、我们已克服的难题、我们还可能成为的样子，以及一个人今天下午就能做的事。它是一座博物馆、一座图书馆，也是一间安静的工作室——向任何语言的读者敞开。",
+    "mission.p1.t": "长远",
+    "mission.p1.b": "以世纪为尺度，而非季度。",
+    "mission.p2.t": "多元",
+    "mission.p2.b": "许多文化、语言与未来并肩而立。",
+    "mission.p3.t": "诚实",
+    "mission.p3.b": "在希望被赢得之处保有希望，在不被赢得之处保持清醒。",
+    "mission.p4.t": "可行动",
+    "mission.p4.b": "每一个想法最终都回到一个人能做的事上。",
+    "ch.eyebrow": "图谱 · 十二项挑战",
+    "ch.title": "十二道长影，十二扇敞开的门。",
+    "ch.intro": "每张卡片把一项21世纪的核心挑战，与其中潜藏的机会并列起来。「严重性」衡量袖手旁观会带来多深的伤害；「机会度」衡量仍可推进的空间。打开任意卡片可阅读更长的版本。",
+    "ch.severity": "严重性",
+    "ch.opportunity": "机会度",
+    "ch.more": "打开长读 →",
+    "tl.eyebrow": "时间线 · 长记忆",
+    "tl.title": "短短一段路，承载长长的故事。",
+    "tl.intro": "人类工程中的十二个门槛——从第一团温暖的火焰，到我们尚未建造的文明。点击任意里程碑可展开更长的解读。",
+    "sc.eyebrow": "可能的未来",
+    "sc.title": "我们仍可能成为的四个世界。",
+    "sc.intro": "没有任何未来是注定的。这四种只是有用的草图——不是预言。每一种都活在这十年正在做的选择里。请把它们当作警告、邀请，或两者皆是。",
+    "sc.warning": "警示信号",
+    "sc.hopeful": "希望迹象",
+    "sc.indiv": "个人可以做的",
+    "sc.inst": "机构可以做的",
+    "pr.eyebrow": "伦理技术",
+    "pr.title": "服务于人的技术 · 八项原则",
+    "pr.intro": "强大的工具，不论我们是否点明，都置身于某种道德框架之内。这些原则是一份起步框架——具体到值得辩论，简单到能在艰难发布之夜的凌晨两点想起。",
+    "pr.example": "举例",
+    "pl.eyebrow": "个人行动计划",
+    "pl.title": "为一个人量身的小计划。",
+    "pl.intro": "选择对你最重要的领域。图谱会为你拼出一份五步计划——今天一件事、本周一件事、本月一件事，外加一份阅读建议与一个晚餐席间的话题。一切都在你的浏览器中完成。",
+    "pl.choose": "选择你关心的领域",
+    "pl.generate": "生成我的计划",
+    "pl.clear": "清空",
+    "pl.today": "今天",
+    "pl.week": "本周",
+    "pl.month": "本月",
+    "pl.learn": "阅读或观看",
+    "pl.talk": "晚餐话题",
+    "pl.empty": "请先勾选至少一个领域，然后按「生成」。",
+    "db.eyebrow": "全球影响仪表板",
+    "db.title": "长曲线正在何处弯折。",
+    "db.intro": "六项关于人类繁荣的常用指标，作为示意性样本数据呈现——方向准确，刻意取整。重点不在小数点后第三位，而在曲线的形状。",
+    "db.note": "⚠ 示意性样本数据 · 非实时",
+    "st.eyebrow": "希望故事",
+    "st.title": "关于人们到底在做什么的小窗口。",
+    "st.intro": "六则简短、提炼过的故事，源于合作、修复与安静的公民劳动的常见样态。它们不是任何人的传记，但你都会觉得似曾相识。",
+    "st.lesson": "启示",
+    "wl.eyebrow": "反思墙",
+    "wl.title": "你想帮助建造怎样的未来？",
+    "wl.intro": "写下一句话、一段碎语，或一个心愿。你的反思只会出现在你浏览器中的本页——什么都不会离开你的设备，什么都不会被保存到任何服务器。",
+    "wl.placeholder": "写下你希望接下来的一百年，是什么感觉……",
+    "wl.privacy": "仅在你的浏览器中可见。关闭此页签即清除。没有分析、没有数据库、没有账号。",
+    "wl.submit": "添加到墙上",
+    "rs.eyebrow": "资源馆",
+    "rs.title": "可读、可看、可练、可教、可议、可造。",
+    "rs.intro": "一架启程书架——一般性的方向建议，而非外链。用筛选找到适合你的小时、你的一周、你的一年的入口。",
+    "rs.all": "全部",
+    "fq.eyebrow": "常见问题",
+    "fq.title": "对公允的问题，给出诚实的回答。",
+    "foot.tag": "一份双语的、公益性质的人类长期挑战图谱：里程碑、可能的未来，以及建设宜居世纪的工作。",
+    "foot.explore": "探索",
+    "foot.do": "行动",
+    "foot.about": "关于",
+    "foot.licence": "公益项目 · 非商业",
+    "foot.note": "静态站点，无后端，仅有聚合访问量统计。",
+    "diff.beginner": "入门",
+    "diff.intermediate": "进阶",
+    "diff.advanced": "深入",
+    "time.minutes": "分钟",
+    "time.hours": "小时",
+    "time.weeks": "周",
+    "time.lifelong": "一生"
+  }
+};
+
+/* ---------- 2. CHALLENGES ---------- */
+const CHALLENGES = [
+  { id: "climate", icon: "🜨", severity: 92, opportunity: 78,
+    en: { title: "Climate Stability", desc: "Holding planetary heating to a level inside which civilizations can plan and farms can ripen.", q: "What does our economy look like when we stop borrowing from the atmosphere?",
+          deep: "<p>For ten thousand years humanity has lived inside a narrow climate band. We are now leaving it. Stabilizing the climate is not one project but a thousand: clean grids, retrofitted cities, restored forests, redesigned diets, recoded incentives.</p><h4>Why this is the keystone</h4><p>It interlocks with every other challenge — health, food, peace, biodiversity. Every degree of warming avoided buys other margins back.</p><h4>What is changing</h4><p>Solar, wind, and storage are finally cheaper than the fuels they replace. The remaining work is not invention but installation, finance, and political will.</p>" },
+    zh: { title: "气候稳定", desc: "把星球升温控制在文明能够规划、农田能够成熟的范围之内。", q: "当我们不再向大气透支，我们的经济会是什么样子？",
+          deep: "<p>过去一万年，人类生活在一条狭窄的气候带内。我们正在离开它。气候稳定不是一个项目，而是一千个：清洁电网、改造城市、恢复森林、重塑饮食、重写激励。</p><h4>为何是关键石</h4><p>它与每一项其他挑战交织——健康、粮食、和平、生物多样性。每避免升温一度，都会赎回其他余量。</p><h4>正在发生的变化</h4><p>太阳能、风能与储能终于比它们要替代的化石燃料更便宜。剩下的工作不是发明，而是安装、融资与政治意志。</p>" }
+  },
+  { id: "ai", icon: "◈", severity: 80, opportunity: 88,
+    en: { title: "Artificial Intelligence Alignment", desc: "Building machines that think with us, not past us — powerful, honest, and answerable.", q: "How do we ensure the most capable systems we build remain accountable to the people they affect?",
+          deep: "<p>AI is no longer a niche subfield. It is rapidly becoming infrastructure — for hospitals, schools, courts, supply chains, defense. The question shifts from 'can we build it' to 'who does it serve, and how do we know.'</p><h4>The harder problem</h4><p>Alignment is not only a technical problem (does the model follow instructions?) but a civic one (whose instructions, audited by whom?). Both layers matter.</p><h4>What helps</h4><p>Independent evaluations, red-team standards, structured deployment, plural research labs, and laws that prize transparency over speed.</p>" },
+    zh: { title: "人工智能对齐", desc: "打造与我们一起思考、而非越过我们思考的机器——强大、诚实、可被问责。", q: "我们如何让自己造出的最强系统，对它影响到的人保持负责？",
+          deep: "<p>AI 已不再是一个小众分支。它正迅速成为医院、学校、法院、供应链与国防的基础设施。问题从「能不能造」变成「为谁服务、如何证明」。</p><h4>更难的问题</h4><p>对齐不仅是技术问题（模型听不听话？），更是公共问题（听谁的话？由谁审计？）。两层都重要。</p><h4>什么有帮助</h4><p>独立评估、红队标准、有结构的部署、多元的研究机构，以及把透明度看得比速度更重要的法律。</p>" }
+  },
+  { id: "edu", icon: "✎", severity: 72, opportunity: 90,
+    en: { title: "Global Education", desc: "A world in which every child learns to think, to read the world, and to write back into it.", q: "If schooling were redesigned for the 22nd century, what would it remember and what would it leave behind?",
+          deep: "<p>Two hundred years ago most humans could not read. Today most can — a quiet, world-shaping triumph. The next leap is qualitative: learning that is curious, plural, and lifelong, not merely credentialing for jobs that may not exist.</p><h4>The coming reshaping</h4><p>AI tutors, open curricula, peer-led learning, and apprenticeship models will outgrow the 19th-century factory model. Done well, this widens access; done poorly, it widens inequality.</p>" },
+    zh: { title: "全民教育", desc: "在这个世界里，每个孩子都学会思考、阅读这个世界，并写下回应。", q: "如果为22世纪重新设计教育，它将保留什么，又会舍弃什么？",
+          deep: "<p>两百年前，大多数人不识字。今天，大多数人识字——这是一场安静却重塑世界的胜利。下一步是质的飞跃：好奇、多元、终身的学习，而不仅是为可能并不存在的职业发文凭。</p><h4>即将到来的重塑</h4><p>AI 导师、开放课程、同伴学习与学徒制将超越19世纪的工厂式模型。做得好，会扩大可及；做得差，会扩大不平等。</p>" }
+  },
+  { id: "health", icon: "✚", severity: 70, opportunity: 86,
+    en: { title: "Public Health", desc: "Hospitals that prevent more than they treat, and societies arranged so that staying healthy is the default.", q: "What if our most expensive medicines were urban design, clean air, and time?",
+          deep: "<p>Modern medicine is a marvel. But the steepest gains in human life come earlier — clean water, vaccines, prenatal care, accessible primary care. The frontier is not just longevity but healthy years lived.</p><h4>What is shifting</h4><p>Genomics, mRNA platforms, AI-aided diagnosis, and global early-warning systems are reshaping what is possible. The bottleneck is no longer just biology; it is logistics, equity, and trust.</p>" },
+    zh: { title: "公共卫生", desc: "医院预防大于治疗，社会的默认状态是让人保持健康。", q: "如果我们最昂贵的「药物」是城市设计、洁净空气与时间，会怎样？",
+          deep: "<p>现代医学令人惊叹。但人类寿命最大的提升发生在更早——洁净的水、疫苗、产前护理、可及的初级医疗。前沿不仅是「长寿」，更是「健康寿年」。</p><h4>正在变化的</h4><p>基因组学、mRNA 平台、AI 辅助诊断与全球预警系统正在重塑可能的边界。瓶颈不再只是生物学，而是物流、公平与信任。</p>" }
+  },
+  { id: "food", icon: "❀", severity: 76, opportunity: 80,
+    en: { title: "Food Security", desc: "Feeding ten billion people without burning the soil, the climate, or each other.",
+          q: "What does a meal look like when it costs the planet nothing to produce?",
+          deep: "<p>The 20th century fed billions through chemistry and irrigation. The 21st must feed billions more on a hotter, drier, more fragile world. The path forward braids three threads: regenerative farming, dietary shifts, and breakthroughs in low-impact protein.</p><h4>What helps</h4><p>Soil restoration, water-aware crops, food sovereignty, shorter supply chains, and cultural permission to eat differently than our grandparents did.</p>" },
+    zh: { title: "粮食安全", desc: "在不烧毁土壤、气候和彼此的前提下，养活一百亿人。",
+          q: "当一顿饭对地球零代价时，它会是什么样子？",
+          deep: "<p>20世纪通过化学与灌溉养活了几十亿人。21世纪必须在更热、更旱、更脆弱的世界上多养活数十亿。前路有三股交织的线：再生农业、饮食转型、低环境影响的蛋白质突破。</p><h4>什么有帮助</h4><p>土壤修复、水敏感作物、粮食主权、更短的供应链，以及让我们能够吃得不同于祖辈的文化许可。</p>" }
+  },
+  { id: "energy", icon: "☀", severity: 68, opportunity: 92,
+    en: { title: "Clean Energy", desc: "Powering modern life from sources that do not borrow from tomorrow.",
+          q: "What does a city look like when it runs on light and wind?",
+          deep: "<p>The clean energy transition is the largest material project humans have ever attempted. Photovoltaics that once cost more than gold-plating now cost pennies; the bottleneck has moved to grids, storage, and permits.</p><h4>The opportunity</h4><p>Cheap clean electricity is the master input to almost everything else: transport, heat, industry, water, even direct-air carbon removal. Get this right and dozens of other problems get easier.</p>" },
+    zh: { title: "清洁能源", desc: "用不向明天透支的能量来源，驱动现代生活。",
+          q: "一座完全靠阳光与风运转的城市，会是什么样？",
+          deep: "<p>清洁能源转型是人类有史以来体量最大的物质工程。曾经贵过镀金的光伏，如今论分计价；瓶颈已转移到电网、储能与审批。</p><h4>机会</h4><p>便宜的清洁电力是几乎一切其他问题的「主输入」：交通、供热、工业、淡水，甚至直接空气碳移除。只要把这件事做对，许多其他问题都会变容易。</p>" }
+  },
+  { id: "bio", icon: "✿", severity: 88, opportunity: 70,
+    en: { title: "Biodiversity", desc: "Holding open the living library — every species an irreplaceable line in the planet's autobiography.",
+          q: "What does it mean to be wealthy, if forests, fish, and pollinators keep disappearing?",
+          deep: "<p>Biodiversity loss is the climate crisis's quieter twin. We are erasing species at rates not seen since the asteroid that ended the dinosaurs — most of it before we have even named them.</p><h4>What is possible</h4><p>Protected areas (when designed with the people who live there), wildlife corridors, marine reserves, regenerative farming, and restoration ecology can all reverse local declines within a decade.</p>" },
+    zh: { title: "生物多样性", desc: "守住生命的图书馆——每一个物种都是地球自传中无可替代的一行。",
+          q: "若森林、鱼类与传粉者持续消失，「富裕」二字还意味着什么？",
+          deep: "<p>生物多样性丧失是气候危机的安静孪生子。我们正以「恐龙灭绝以来最快」的速度抹去物种——其中大多数还没来得及命名就已消失。</p><h4>什么仍可能</h4><p>保护区（在与本地居民共同设计时）、野生动物走廊、海洋保护区、再生农业与恢复生态学，都能在十年内逆转局部衰退。</p>" }
+  },
+  { id: "peace", icon: "☮", severity: 84, opportunity: 64,
+    en: { title: "Peace & Conflict Prevention", desc: "Building the institutions and habits that turn disputes into negotiations rather than wreckage.",
+          q: "What if peace was treated as infrastructure — funded, maintained, audited?",
+          deep: "<p>Most of human history is a story of fewer wars than the news cycle suggests. But the 21st century brings new fronts — cyber, autonomous weapons, climate-driven displacement — that require new diplomacy.</p><h4>The work</h4><p>Functioning treaties, accessible justice systems, conflict early-warning, demilitarized borders, education that takes 'the other side' seriously, and a steady cultural insistence that violence is failure, never solution.</p>" },
+    zh: { title: "和平与冲突预防", desc: "建立把争端转化为谈判、而非废墟的制度与习惯。",
+          q: "如果和平被当作基础设施——被拨款、被维护、被审计，世界会怎样？",
+          deep: "<p>从人类历史长尺度看，战争其实少于新闻频道暗示的样子。但21世纪带来新前沿——网络战、自主武器、气候驱动的流离——需要新的外交学。</p><h4>具体的工作</h4><p>有效的条约、可及的司法、冲突早期预警、去军事化的边界、认真对待「对方」的教育，以及一种稳定的文化坚持：暴力是失败，从来不是解决方案。</p>" }
+  },
+  { id: "mental", icon: "❉", severity: 70, opportunity: 82,
+    en: { title: "Mental Health", desc: "Inner lives that are not borne alone, and societies wired for attention rather than against it.",
+          q: "What if loneliness, anxiety, and meaninglessness were treated as public-health emergencies?",
+          deep: "<p>The 21st century has produced more material wealth than any previous era — and a quiet epidemic of depression, anxiety, and disconnection. Mental health is not a personal failing; it is a civic indicator.</p><h4>What helps</h4><p>Walkable cities, third places, screen-time literacy, well-funded community care, evidence-based therapies treated as rights not luxuries, and cultural narratives that include weakness as part of being human.</p>" },
+    zh: { title: "心理健康", desc: "不独自承受的内心世界，朝向「专注」而非反对它的社会接线方式。",
+          q: "如果把孤独、焦虑与无意义感当作公共卫生紧急事件，会怎样？",
+          deep: "<p>21世纪创造了空前的物质财富——也带来了抑郁、焦虑与失联的安静流行病。心理健康不是个人失败，而是一个公民社会的指标。</p><h4>什么有帮助</h4><p>可步行的城市、「第三场所」、屏幕时间素养、被充足资助的社区照护、被视作权利而非奢侈品的循证疗法，以及把「软弱」也纳入「人之为人」的文化叙事。</p>" }
+  },
+  { id: "rights", icon: "⊞", severity: 78, opportunity: 76,
+    en: { title: "Digital Rights", desc: "An online world that respects the same dignities the offline one took centuries to win.",
+          q: "What rights should follow you into every screen, every algorithm, every model?",
+          deep: "<p>Free speech, due process, privacy, freedom of assembly — all were hard-won in the analog era. The digital era keeps re-litigating each one against new affordances of surveillance, manipulation, and scale.</p><h4>The next frontier</h4><p>Encryption as a civil right, transparent algorithms in consequential systems, data minimization by default, and democratic control over the largest information-shaping platforms.</p>" },
+    zh: { title: "数字权利", desc: "一个尊重线下世界用几个世纪赢得的同等尊严的网络世界。",
+          q: "在每一块屏幕、每一个算法、每一个模型背后，应当跟随你的，是哪些权利？",
+          deep: "<p>言论自由、正当程序、隐私权、集会自由——皆是模拟时代用艰辛换来的。数字时代正不断地为每一项权利重新打官司，对手是新的监控、操纵与规模化能力。</p><h4>下一前沿</h4><p>加密作为公民权利、关键系统中算法的透明、默认的最小化数据收集，以及对最大信息塑造平台的民主控制。</p>" }
+  },
+  { id: "work", icon: "⚒", severity: 64, opportunity: 84,
+    en: { title: "Future of Work", desc: "Earning a livelihood, contributing meaning, and not being defined by either.",
+          q: "If machines do most of the predictable labor, what is left that is uniquely human — and how do we share its rewards?",
+          deep: "<p>Each industrial revolution has rewritten what 'a job' means. The current one is rewriting the white-collar layer too. The result need not be misery: shorter weeks, broader ownership, and a wider set of socially valued contributions are all on the table.</p><h4>What this requires</h4><p>Portable benefits, lifelong learning subsidies, strong unions in new sectors, public-interest entrepreneurship, and an updated cultural answer to 'what do you do?'</p>" },
+    zh: { title: "工作的未来", desc: "谋生、贡献意义，而不被任何一方所定义。",
+          q: "若机器承担了大多数可预测的劳动，独属于人类的还剩什么？我们又如何共享它的报酬？",
+          deep: "<p>每一次工业革命都在改写「一份工作」的含义。这一轮也在改写白领层。结果未必是苦难：更短的工作周、更广的所有权、更宽的「被社会认可的贡献」清单——都摆在桌面上。</p><h4>这需要</h4><p>可携带的福利、终身学习补贴、新行业里强有力的工会、公益性创业，以及面对「你是做什么的？」时一个更新过的文化回答。</p>" }
+  },
+  { id: "space", icon: "✸", severity: 40, opportunity: 86,
+    en: { title: "Planetary Perspective", desc: "Seeing Earth from far enough away to remember it is the only one we have.",
+          q: "What changes in us when we look back at our home as one shared blue room?",
+          deep: "<p>Space is not an escape hatch from Earth's problems; it is a mirror. Astronauts return changed by the Overview Effect — a sudden, embodied sense that borders are conventions and atmospheres are thin.</p><h4>Why it matters here</h4><p>A spacefaring civilization that does not first become a livable one is just a brief flare. Planetary perspective is the discipline of acting locally with the long view of someone seeing it all from above.</p>" },
+    zh: { title: "行星视角", desc: "从足够远的地方回望地球，记起它是我们唯一的家。",
+          q: "当我们把家园看作一间共享的蓝色房间，我们身上会发生什么变化？",
+          deep: "<p>太空不是从地球问题中逃生的小门，而是一面镜子。宇航员从「全景效应」中归来时已被改变——一种突然的、具身的体悟：边界只是约定，大气层薄如蝉翼。</p><h4>为何重要</h4><p>一个不先成为宜居者的航天文明，只是宇宙中一束短促的光焰。行星视角是一种修养：以「在高处一览全貌者」的目光，从事在地的行动。</p>" }
+  }
+];
+
+/* ---------- 3. TIMELINE ---------- */
+const TIMELINE = [
+  { year: "~1.5M BCE",
+    en: { t: "Discovery of Fire", s: "Heat, light, cooked food, longer evenings.",
+          d: "<p>Mastered fire turns the world into a hearth. Cooking unlocks calories the gut alone could not extract; warmth extends habitable range; flame turns night into the first social hours of the human story.</p>" },
+    zh: { t: "用火", s: "热、光、熟食，更长的夜晚。",
+          d: "<p>掌握火，让世界变成壁炉。烹饪释放了仅靠肠道无法摄取的热量；温暖扩展了可居住范围；火焰把黑夜变成了人类故事中第一段「社交时间」。</p>" } },
+  { year: "~10,000 BCE",
+    en: { t: "Agriculture", s: "Settlement, surplus, stratification.",
+          d: "<p>Farming converts time into stored grain — and stored grain into priests, accountants, kings, and cities. The first civilizations follow a few centuries later.</p>" },
+    zh: { t: "农业", s: "定居、盈余与分层。",
+          d: "<p>耕作把时间转化为储存的粮食——再把粮食转化为祭司、账房、王者与城市。最早的文明随之在数百年后到来。</p>" } },
+  { year: "~3,200 BCE",
+    en: { t: "Writing", s: "Memory beyond a single mind.",
+          d: "<p>Cuneiform, hieroglyphs, oracle bones, alphabets — once thought lives outside the skull, civilizations can think across generations. Law becomes durable; science becomes possible.</p>" },
+    zh: { t: "文字", s: "超越一颗大脑的记忆。",
+          d: "<p>楔形文字、象形文字、甲骨文、字母——当思想生活在头骨之外，文明便能跨越世代地思考。法律变得稳固；科学成为可能。</p>" } },
+  { year: "1440",
+    en: { t: "Printing Press", s: "Knowledge becomes copyable.",
+          d: "<p>Gutenberg's press multiplies books from rarities to commonplace objects. Literacy spreads, the Reformation erupts, the scientific revolution finds an audience.</p>" },
+    zh: { t: "印刷机", s: "知识可被复制。",
+          d: "<p>古腾堡的印刷机让书籍从稀有品变成日常之物。识字率扩散，宗教改革爆发，科学革命找到了它的读者。</p>" } },
+  { year: "16th–17th c.",
+    en: { t: "Scientific Revolution", s: "Doubt, experiment, repeatable truth.",
+          d: "<p>Galileo, Kepler, Newton, Bacon, al-Tusi — a slow handover from authority to evidence. The world becomes legible in equations. Modernity begins.</p>" },
+    zh: { t: "科学革命", s: "怀疑、实验、可重复的真。",
+          d: "<p>伽利略、开普勒、牛顿、培根、图西——从权威向证据的缓慢交班。世界开始以方程的形式被读懂。现代由此开端。</p>" } },
+  { year: "1879",
+    en: { t: "Electricity", s: "Time-shifted light and labour.",
+          d: "<p>Edison, Tesla, Swan, Yablochkov — a dozen contemporaneous breakthroughs hand humans control over the day itself. Factories, cities, hospitals, computers all become downstream possibilities.</p>" },
+    zh: { t: "电力", s: "可被位移的光与劳作。",
+          d: "<p>爱迪生、特斯拉、斯旺、雅布洛奇科夫——十余项同时代的突破，把昼夜本身交到人类手中。工厂、城市、医院、计算机皆成为其下游的可能。</p>" } },
+  { year: "1928",
+    en: { t: "Antibiotics", s: "A century without sepsis as fate.",
+          d: "<p>Fleming's penicillin closes a chapter older than civilization itself: bacterial infection as routine death sentence. The 20th century's life-expectancy doubling rides largely on this.</p>" },
+    zh: { t: "抗生素", s: "败血症不再是命运。",
+          d: "<p>弗莱明的青霉素合上了一页比文明本身更古老的章节：细菌感染常等于宣判死亡。20世纪人均寿命翻倍，大部分仰赖于此。</p>" } },
+  { year: "1969",
+    en: { t: "Internet & Lunar Landing", s: "Two networks open at once.",
+          d: "<p>Apollo 11 and ARPANET arrive within months of each other — humans walk on another world and link their computers across continents. Both alter what 'us' means.</p>" },
+    zh: { t: "互联网与登月", s: "两张网络同时打开。",
+          d: "<p>阿波罗11号与ARPANET相隔数月先后到来——人类既踏上了另一个世界，也跨越大陆把彼此的计算机连成一张网。两件事都改变了「我们」的边界。</p>" } },
+  { year: "2003",
+    en: { t: "Human Genome", s: "Reading the code we are written in.",
+          d: "<p>The Human Genome Project completes — three billion base pairs spelled out, the inner library opened. Within twenty years, mRNA vaccines, personalized therapies, and gene editing all follow.</p>" },
+    zh: { t: "人类基因组", s: "读懂我们被写就的代码。",
+          d: "<p>人类基因组计划完成——三十亿碱基对被读出，内在的图书馆被打开。二十年内，mRNA 疫苗、个体化治疗与基因编辑相继到来。</p>" } },
+  { year: "2015",
+    en: { t: "Renewable Tipping Point", s: "Sunlight cheaper than fossil fuels.",
+          d: "<p>For the first time in history, electricity from the sun and wind crosses below coal and gas in cost — quietly, almost unannounced. The trajectory of the next century pivots.</p>" },
+    zh: { t: "可再生能源转折点", s: "阳光比化石燃料更便宜。",
+          d: "<p>历史上第一次，太阳能与风能的电力成本跌破煤与天然气——悄悄地，几乎没有发布会。下一个世纪的轨迹悄然转向。</p>" } },
+  { year: "2020s",
+    en: { t: "Age of AI", s: "Cognition, externalized.",
+          d: "<p>Large models begin to read, write, and reason at near-human level across many domains. Like every previous tool of this magnitude, the question is not whether it will reshape life, but whose values get built into it.</p>" },
+    zh: { t: "人工智能时代", s: "认知，被外部化。",
+          d: "<p>大模型开始在许多领域以接近人类的水平阅读、写作与推理。如同每一项同等量级的工具，问题不在于它是否会重塑生活，而在于谁的价值观将被嵌入其中。</p>" } },
+  { year: "Ahead",
+    en: { t: "A Sustainable Civilization", s: "Built only if we choose to build it.",
+          d: "<p>This milestone has no date. It is the one being negotiated right now, in a thousand decisions large and small. Its shape is genuinely undetermined. The atlas exists for it.</p>" },
+    zh: { t: "可持续文明", s: "只有我们选择建造时才会到来。",
+          d: "<p>这个里程碑没有日期。它正在此刻被协商——在一千个或大或小的决定中。它的形状真切地尚未决定。这本图谱，正是为它而存在。</p>" } }
+];
+
+/* ---------- 4. SCENARIOS ---------- */
+const SCENARIOS = [
+  { cls: "dystopian-1", tag: "Dystopian",
+    en: { title: "Fragmented Future",
+          desc: "Borders harden; cooperation shrinks; the global commons fractures into rival blocs that struggle to coordinate on anything bigger than themselves.",
+          warn: ["Trade and visa walls rising", "Climate negotiations stall", "Information ecosystems split per region", "Cross-border science slows"],
+          hope: ["Bilateral and city-level cooperation", "Cultural exchange persists", "Diaspora networks grow stronger"],
+          ind: ["Maintain friendships across borders", "Read media from outside your country", "Support cross-border civil society"],
+          inst: ["Preserve open standards", "Fund neutral scientific bodies", "Resist zero-sum framings in policy"] },
+    zh: { title: "碎片化的未来",
+          desc: "边界变硬，合作收缩，全球公共领域裂解为难以就任何超越自身的事项达成协调的阵营。",
+          warn: ["贸易与签证壁垒升高", "气候谈判停滞", "信息生态按地区分裂", "跨国科学合作放缓"],
+          hope: ["双边与城市层面的合作", "文化交流仍在延续", "侨民网络更为紧密"],
+          ind: ["维系跨国友谊", "阅读本国之外的媒体", "支持跨境的公民社会"],
+          inst: ["守护开放标准", "资助中立的科学机构", "在政策中抵制零和框架"] }
+  },
+  { cls: "dystopian-2", tag: "Dystopian",
+    en: { title: "Automated Inequality",
+          desc: "Powerful systems concentrate wealth and decision-making in fewer hands; most lives become legible to a few, and the few become legible to almost no one.",
+          warn: ["Wage share keeps falling", "Algorithmic eviction, sentencing, hiring without recourse", "Governance dependent on opaque vendors", "Geographies of automation deserts"],
+          hope: ["Worker cooperatives in new sectors", "Public AI infrastructure pilots", "Open-weight model communities", "Cross-class movements for accountability"],
+          ind: ["Learn how the systems shaping your life work", "Audit your own use of opaque tools", "Join or fund collective bargaining"],
+          inst: ["Mandate algorithmic impact assessments", "Tax automation gains broadly", "Build public-interest AI alternatives"] },
+    zh: { title: "自动化的不平等",
+          desc: "强大的系统将财富与决策集中到更少的人手中；大多数人的生活对少数人变得透明，而少数人对几乎所有人变得不透明。",
+          warn: ["劳动报酬份额持续下降", "算法决定的驱逐、量刑、招聘，且无申诉途径", "治理依赖不透明的供应商", "出现「自动化沙漠」"],
+          hope: ["新行业的劳工合作社", "公共 AI 基础设施试点", "开权重模型社区", "跨阶层的问责运动"],
+          ind: ["了解塑造你生活的系统如何运作", "审视你自己对不透明工具的使用", "加入或资助集体协商"],
+          inst: ["强制实施算法影响评估", "对自动化收益进行普遍征税", "建设公共利益的 AI 替代方案"] }
+  },
+  { cls: "utopian-1", tag: "Utopian",
+    en: { title: "Regenerative Civilization",
+          desc: "Economies stop drawing down nature and start adding to it. Cities breathe. Ecosystems return. Wealth is measured in repaired land as well as added GDP.",
+          warn: ["Greenwashing without measurable repair", "Reforestation that displaces communities", "Carbon markets without integrity"],
+          hope: ["Soil carbon rising on monitored farms", "Coral and reef recovery in protected waters", "City forests, urban wetlands, daylit rivers", "Indigenous-led conservation expanding"],
+          ind: ["Plant native; eat seasonal", "Choose products that disclose full lifecycle", "Spend a season helping a local restoration"],
+          inst: ["Measure GDP alongside ecological balance", "Procure regeneratively", "Reform subsidies that destroy and reward those that repair"] },
+    zh: { title: "再生型文明",
+          desc: "经济不再向自然透支，而开始向它增添。城市呼吸顺畅，生态系统回归，财富既以增加的 GDP，也以被修复的土地来衡量。",
+          warn: ["「漂绿」而无可量化的修复", "排挤社区的造林项目", "缺乏诚信的碳市场"],
+          hope: ["被监测农场上的土壤碳含量上升", "保护水域中的珊瑚与礁体恢复", "城市森林、城市湿地、重见天日的河流", "原住民主导的保育区扩展"],
+          ind: ["种本地植物，吃当季食物", "选择披露全生命周期的产品", "用一个季度帮一项本地修复项目"],
+          inst: ["在 GDP 之外衡量生态平衡", "用再生方式做政府采购", "改革那些破坏的补贴，奖励那些修复的"] }
+  },
+  { cls: "utopian-2", tag: "Hopeful",
+    en: { title: "Cooperative Intelligence",
+          desc: "Humans and machines extend each other's strengths. AI helps amplify good judgment rather than replace it; institutions become more accountable, science more accessible, work more humane.",
+          warn: ["Augmented surveillance disguised as 'help'", "Cognitive de-skilling at scale", "Concentrated control of the most capable systems"],
+          hope: ["AI tutors expanding learning to billions", "Public-interest scientific assistants", "Better-translated, broader civic dialogue", "Models that audit institutional behaviour, not just citizens'"],
+          ind: ["Use AI for things that grow you, not just things that save you minutes", "Notice your own thinking; do not outsource it entirely", "Teach a younger person what you know"],
+          inst: ["Open-weight, well-governed public models", "Independent evaluation as standard", "Strong norms against unaccountable autonomy"] },
+    zh: { title: "协同智能",
+          desc: "人类与机器互相延伸彼此的长处。AI 帮助放大良好的判断，而非取代它；机构更具问责性，科学更可及，工作更人性化。",
+          warn: ["伪装成「帮你」的扩展式监控", "大规模认知技能退化", "对最强系统的集中控制"],
+          hope: ["AI 导师把学习扩展到数十亿人", "公共利益的科学助手", "翻译更佳、范围更广的公民对话", "审计机构（而不只是公民）的模型"],
+          ind: ["把 AI 用在让你成长的事情上，而不仅仅是替你省时的事", "留意自己的思考，不要把它整体外包", "教比你年轻的人你知道的事"],
+          inst: ["开权重、被良好治理的公共模型", "把独立评估作为标准", "对无问责的自主能力建立强力规范"] }
+  }
+];
+
+/* ---------- 5. PRINCIPLES ---------- */
+const PRINCIPLES = [
+  { en: { t: "Human Dignity", b: "Treat every person as an end, not as a metric. Optimize for lives, not just engagement.", ex: "A health platform measures success by recovered patients, not by minutes spent in-app." },
+    zh: { t: "人的尊严", b: "把每个人视为目的，而非指标。优化对象应是生命，而非「停留时长」。", ex: "一款健康产品以康复人数衡量成功，而不是用户在 App 内的时长。" } },
+  { en: { t: "Transparency", b: "If a system makes a decision about a person, that person can know how — at a level they can act on.", ex: "An automated benefits decision arrives with the rule that triggered it and a clear path to challenge." },
+    zh: { t: "透明", b: "如果一个系统对一个人作出决定，这个人能知道它是怎么做的——以可以据此行动的颗粒度。", ex: "一项自动化福利决定，附上触发它的规则与清晰的申诉路径。" } },
+  { en: { t: "Privacy", b: "Collect what you need; protect what you collect; forget what you no longer need.", ex: "An app for sleep tracking processes data on-device by default and never uploads raw signals." },
+    zh: { t: "隐私", b: "需要什么收集什么；收集了的就保护好；不再需要的就忘记。", ex: "一款睡眠追踪应用默认在本机处理数据，从不上传原始信号。" } },
+  { en: { t: "Safety", b: "Imagine the worst plausible misuse before launch, not after the headlines.", ex: "Before releasing a powerful generative model, run structured red-team testing with external auditors and publish what you learned." },
+    zh: { t: "安全", b: "在发布前，而不是在新闻头条后，去设想最糟却合理的误用。", ex: "发布强力生成模型之前，组织外部审计者参与结构化红队测试，并公开所学到的。" } },
+  { en: { t: "Fairness", b: "If a tool works better for one group than another, that gap is part of the spec — not an externality.", ex: "A face-matching system is benchmarked across skin tones, ages and lighting before any production use." },
+    zh: { t: "公平", b: "如果一项工具对某一群体比对另一群体更好用，这种差距就是产品规格的一部分——不是「外部性」。", ex: "一套人脸匹配系统在投入生产前，在不同肤色、年龄与光照条件下分别基准测试。" } },
+  { en: { t: "Accountability", b: "When something goes wrong, a human can be named, called, and held responsible.", ex: "An autonomous vehicle company publishes named owners for safety, software, and incident response." },
+    zh: { t: "问责", b: "当事情出错时，能找到具体的人，并由其负责。", ex: "一家自动驾驶公司公布安全、软件与事故响应的具名负责人。" } },
+  { en: { t: "Sustainability", b: "Engineering choices should leave the underlying world more habitable, not less.", ex: "A data center commits to renewable supply, water-positive cooling, and full carbon disclosure." },
+    zh: { t: "可持续性", b: "工程选择应当让其所在的世界更宜居，而非更不宜居。", ex: "一座数据中心承诺：完全可再生供电、水正向的冷却方案、碳排放全披露。" } },
+  { en: { t: "Collective Benefit", b: "Power earned at scale carries a duty back to the commons that made the scale possible.", ex: "A platform that reaches a billion users contributes core open-source infrastructure and protects election integrity." },
+    zh: { t: "公共福祉", b: "规模带来的权力，也带来对成就这种规模的「公共领域」的义务。", ex: "一个用户数十亿的平台，回馈核心开源基础设施，并保护选举的诚信。" } }
+];
+
+/* ---------- 6. INTERESTS / ACTION DATA ---------- */
+const INTERESTS = [
+  { id: "climate", en: "Climate", zh: "气候" },
+  { id: "education", en: "Education", zh: "教育" },
+  { id: "ai", en: "AI ethics", zh: "AI 伦理" },
+  { id: "health", en: "Health", zh: "健康" },
+  { id: "community", en: "Community", zh: "社区" },
+  { id: "mental", en: "Mental wellbeing", zh: "心理健康" },
+  { id: "biodiversity", en: "Biodiversity", zh: "生物多样性" },
+  { id: "peace", en: "Peace", zh: "和平" }
+];
+
+/* For each interest, predefined plans for today / week / month / learn / talk */
+const PLANS = {
+  climate: {
+    en: { today: "Walk, cycle, or take transit for one trip you would normally drive — and notice how it felt.",
+          week: "Pick one heating, cooling, or appliance choice in your home that uses less energy this season.",
+          month: "Switch your savings or pension contribution toward a fund without major fossil-fuel exposure, if your context allows.",
+          learn: "Read one accessible book on the energy transition — the science, not just the politics.",
+          talk: "Ask someone you disagree with: 'What does climate action look like, in a way you would actually want?'" },
+    zh: { today: "把今天本会开车的一段路，换成步行、自行车或公共交通——并留意它给你的感觉。",
+          week: "挑一项家中本季度的取暖、制冷或电器选择，让它更省能。",
+          month: "如果条件允许，把你的储蓄或养老金切换到一支不重仓化石燃料的基金。",
+          learn: "读一本通俗的能源转型读物——科学的视角，而不仅仅是政治的视角。",
+          talk: "问一个跟你看法不同的人：「在你愿意接受的方式下，气候行动应当是什么样子？」" }
+  },
+  education: {
+    en: { today: "Send one well-chosen article, podcast, or book to someone who you think will love it.",
+          week: "Spend an hour learning something genuinely outside your field — for the sheer pleasure of it.",
+          month: "Mentor one person, even informally — answer questions, read drafts, or just keep showing up.",
+          learn: "Watch a free university lecture in a subject you avoided in school.",
+          talk: "Ask: 'What did you wish school had taught you?' Listen all the way through." },
+    zh: { today: "把一篇精选的文章、播客或一本书，发给一个你觉得会喜欢的人。",
+          week: "用一个小时学一件确实在你专业之外的东西——纯粹为了乐趣。",
+          month: "辅导一个人，哪怕是非正式的——回答问题、读 ta 的草稿，或就是「保持出现」。",
+          learn: "看一节你在学校里逃避过的科目的免费大学公开课。",
+          talk: "问对方：「你希望学校曾经教过你什么？」——一直听到底。" }
+  },
+  ai: {
+    en: { today: "List three ways AI is already shaping your daily life. Notice which ones you chose, and which were chosen for you.",
+          week: "Audit one app you use heavily: what data does it collect, and does it have a public model card or data policy?",
+          month: "Read one substantive critique of AI you suspect you will disagree with. Steel-man it. Then form your own view.",
+          learn: "Try a hands-on AI tutorial that exposes the model's prompts and outputs — demystify the magic.",
+          talk: "Ask: 'What is something you would never let an AI decide for you, and why?'" },
+    zh: { today: "列出 AI 已经在塑造你日常生活的三种方式。留意哪些是你选的，哪些是替你选的。",
+          week: "审视一款你常用的应用：它在收集哪些数据？是否有公开的模型说明或数据政策？",
+          month: "读一篇你猜自己会不同意的、严肃的 AI 批评。先把它「钢人化」（尽量讲得最强），再形成你自己的看法。",
+          learn: "做一个会暴露模型提示词与输出的动手 AI 教程——把魔术变成原理。",
+          talk: "问对方：「有什么是你绝不会让 AI 替你决定的？为什么？」" }
+  },
+  health: {
+    en: { today: "Move your body for thirty minutes — anything that makes you breathe a little harder.",
+          week: "Cook two meals at home that you would usually buy. Notice the time, not just the cost.",
+          month: "Schedule one preventive check-up you have been postponing. Mark it like a meeting that cannot be moved.",
+          learn: "Read a short, well-cited primer on how habits actually form. Pick one thing to change.",
+          talk: "Ask: 'When do you feel most well, and what is the smallest thing that gets in the way?'" },
+    zh: { today: "动 30 分钟身体——任何会让你呼吸略急的活动。",
+          week: "在家做两顿你平时会外卖的饭。留意花的时间，而不只是花的钱。",
+          month: "把那项你一直推迟的预防性体检约上。像约一个不可移动的会议一样标注它。",
+          learn: "读一本简短而引证扎实的「习惯如何形成」入门读物。选一件事来改变。",
+          talk: "问对方：「你什么时候感觉最健康？什么是最小的、挡在你面前的那件事？」" }
+  },
+  community: {
+    en: { today: "Greet a neighbour by name. If you don't know it yet, learn it.",
+          week: "Show up to one local meeting — library board, school council, neighborhood association. Just listen.",
+          month: "Volunteer for a single concrete task in a local organization. Finish it well.",
+          learn: "Read your city or region's most recent strategic plan. Skim, then circle three things you would change.",
+          talk: "Ask a long-time resident: 'What is this place getting wrong, and what is it quietly getting right?'" },
+    zh: { today: "用名字向一位邻居打招呼。如果还不知道，就学会它。",
+          week: "出席一次本地会议——图书馆理事会、家长委员会、社区联合会。先去听。",
+          month: "在一家本地机构里承担一项具体任务。把它做完、做好。",
+          learn: "读一读你所在城市或地区最新的战略规划。先扫读，再圈出你想改的三件事。",
+          talk: "问一位老住户：「这个地方哪些事情做错了？又有哪些事情在悄悄做对？」" }
+  },
+  mental: {
+    en: { today: "Spend ten minutes outdoors without a screen. Just look at the world.",
+          week: "Reach out to one friend you haven't spoken to in a while. Don't optimize the message — just send it.",
+          month: "Try one form of practice — meditation, journaling, talk therapy, slow walking — for thirty consecutive days.",
+          learn: "Read a careful, non-self-help account of attention, loneliness, or modern anxiety. Stay with the difficulty.",
+          talk: "Ask: 'When did you last feel quietly content, and what was happening?'" },
+    zh: { today: "在户外、不看屏幕地度过十分钟。就这样，看看这个世界。",
+          week: "给一个许久没联系的朋友发条信息。别优化措辞——发出去就好。",
+          month: "选一种练习——冥想、写日记、谈话治疗、慢步——连续做三十天。",
+          learn: "读一本认真的、非励志类的关于注意力、孤独或现代焦虑的书。和难处共处一会儿。",
+          talk: "问对方：「你最近一次安静地感到知足，是什么时候？当时正在发生什么？」" }
+  },
+  biodiversity: {
+    en: { today: "Notice one non-human living thing within arm's reach — a tree, a bird, an insect. Learn its name later.",
+          week: "Replace lawn with native ground cover, even a one-meter strip. Or talk to a neighbour about it.",
+          month: "Spend one Saturday on a habitat restoration day with a local nature group.",
+          learn: "Read a popular, careful book on a species or ecosystem near where you live.",
+          talk: "Ask: 'What did this place look like a hundred years ago — and what is left of that?'" },
+    zh: { today: "注意伸手可及处的一个非人生命——一棵树、一只鸟、一只虫。回头查一下它的名字。",
+          week: "用本地原生地被替换一小块草坪——哪怕只是一米宽的一条。或与邻居谈起这件事。",
+          month: "用一个周六，跟随本地的自然团体参与一次栖息地修复。",
+          learn: "读一本认真的、面向大众的、关于你所在地附近物种或生态的书。",
+          talk: "问对方：「这片地方一百年前是什么样的？现在还剩下什么？」" }
+  },
+  peace: {
+    en: { today: "Speak with care to someone you disagree with — including online. Notice the difference it makes in you.",
+          week: "Read one news source from a country or community you usually overlook.",
+          month: "Donate time, money, or attention to a peacebuilding or refugee-support organization with a measurable program.",
+          learn: "Watch or read a long-form account of a peace negotiation — successful or not. Notice the boring, careful work.",
+          talk: "Ask: 'What is a hard thing about your community that I should know, that the news will never show me?'" },
+    zh: { title: "和平",
+          today: "用心地与你不同意的人交流——也包括网络上。留意它在你身上带来的变化。",
+          week: "读一份来自你通常忽略的国家或群体的新闻。",
+          month: "向有可衡量项目的和平建设或难民支持机构，捐时间、捐钱，或捐注意力。",
+          learn: "看或读一份长篇的关于和平谈判的记述——无论成功与否。留意那些枯燥而细致的工作。",
+          talk: "问对方：「你所在社群里，有什么困难是我应当知道、但新闻永远不会告诉我的？」" }
+  }
+};
+
+/* ---------- 7. DASHBOARD METRICS ---------- */
+const METRICS = [
+  { id: "literacy", value: 87, unit: "%", delta: "+1 pt / decade",
+    en: { t: "Adult literacy, global", c: "Roughly nine in ten adults can now read — up from less than two in ten in 1900." },
+    zh: { t: "全球成人识字率", c: "目前约九成成人能识字——而 1900 年时不到两成。" } },
+  { id: "renewables", value: 39, unit: "% of grid", delta: "+2 pts / yr",
+    en: { t: "Renewable share of electricity", c: "Wind, solar and hydro together now produce more than a third of the world's electricity." },
+    zh: { t: "可再生电力占比", c: "风、光、水合计已发出全球三分之一以上的电力。" } },
+  { id: "protected", value: 17, unit: "%", delta: "Goal: 30% by 2030",
+    en: { t: "Land & ocean protected", c: "Roughly 17% of land and 8% of ocean are protected — short of the 30×30 target." },
+    zh: { t: "陆地与海洋保护比例", c: "约 17% 的陆地与 8% 的海洋已划入保护区——距「30×30」目标尚远。" } },
+  { id: "internet", value: 67, unit: "%", delta: "+1 pt / yr",
+    en: { t: "Global internet access", c: "Two of every three humans are now online — but the next billion are the hardest to reach." },
+    zh: { t: "全球互联网接入率", c: "三人之中有两人已上网——但下一个十亿是最难触达的。" } },
+  { id: "poverty", value: 8, unit: "%", delta: "−1 pt / yr (was 36% in 1990)", down: true,
+    en: { t: "Extreme poverty rate", c: "The share of humans living below the extreme-poverty line has fallen sharply, though uneven progress remains." },
+    zh: { t: "极端贫困比例", c: "处于极端贫困线之下的人口比例已大幅下降，但进展仍不均衡。" } },
+  { id: "life", value: 73, unit: "yrs", delta: "+0.3 yr / yr (long-run)",
+    en: { t: "Global life expectancy", c: "A baby born today can expect to live more than two decades longer than one born a century ago." },
+    zh: { t: "全球预期寿命", c: "今天出生的婴儿，预计比一百年前出生的婴儿多活二十年以上。" } }
+];
+
+/* ---------- 8. STORIES OF HOPE ---------- */
+const STORIES = [
+  { en: { meta: "City · Renewal", t: "The Daylit River",
+          n: "A city that buried a river under pavement in the 1950s slowly takes the concrete back off, decade by decade. Birds return first, then children, then summer evenings. The economic projections are wrong in the right direction: property values rise, but so does shade, and the heat-related hospital visits drop.",
+          l: "The future can include unburying things." },
+    zh: { meta: "城市 · 复兴", t: "重见天日的河流",
+          n: "一座在 1950 年代用混凝土把一条河掩埋的城市，逐年地、缓慢地把混凝土再搬开。先回来的是鸟，然后是孩子，再然后是夏天的傍晚。经济预测的方向错了——但错得对：房价上涨，阴凉变多，与酷热相关的急诊也减少。",
+          l: "未来可以包含「把被埋住的东西挖回来」。" } },
+  { en: { meta: "Village · Energy", t: "Solar After Sunset",
+          n: "A small village without grid connection installs panels and batteries by hand, with help from a regional cooperative. After dark, children read for the first time. A clinic refrigerates vaccines. A small workshop runs an extra evening shift. None of this requires invention — only finance, training, and trust.",
+          l: "Sometimes the breakthrough is logistical, not technological." },
+    zh: { meta: "村庄 · 能源", t: "日落之后的阳光",
+          n: "一座未通市电的小村，靠区域合作社的协助，亲手装上了光伏板与电池。天黑以后，孩子们第一次能读书；诊所开始冷藏疫苗；一家小作坊多开了一个夜班。所有这一切都不需要发明，只需要融资、培训与信任。",
+          l: "有时候，突破不在于技术，而在于物流。" } },
+  { en: { meta: "School · Education", t: "The Student Who Asked Better",
+          n: "In a quiet provincial school, a teacher stops grading the answers and starts grading the questions. In one year, the class's standardized scores barely move — but their willingness to argue with each other transforms. A decade later, three of them run a collaborative research lab.",
+          l: "Curiosity, taught patiently, compounds." },
+    zh: { meta: "学校 · 教育", t: "提出更好问题的学生",
+          n: "在一所偏远省份的小学里，一位老师不再为答案打分，而开始为「问题」打分。一年内，全班的标准化考试成绩几乎没有变化——但他们与彼此争论的意愿被彻底重塑。十年后，他们中的三人共同建立了一个协作研究实验室。",
+          l: "好奇心，被耐心地教导，会复利。" } },
+  { en: { meta: "Hospital · Public Health", t: "The Quiet Vaccine Run",
+          n: "A team of nurses, drivers, and community elders combine an old logistics network with a new mRNA platform. They reach a region that was previously invisible to public health. There is no headline. There is, however, a child whose grandmother sees her graduate.",
+          l: "Most progress is unphotographed." },
+    zh: { meta: "医院 · 公共卫生", t: "安静的疫苗之路",
+          n: "由护士、司机与社区长者组成的小队，把一张古老的物流网络与一台崭新的 mRNA 平台拼合在一起。他们到达了一片此前对公共卫生「不可见」的地区。没有头条。但有一个孩子，会被她的祖母看见毕业。",
+          l: "大部分的进展，没人拍下照片。" } },
+  { en: { meta: "Workshop · Reconciliation", t: "Two Sides, One Table",
+          n: "Two communities — one that lost land, one that gained it — meet for the seventh year in a row. The first three years were shouting. The fourth was cold silence. The fifth, oddly, jokes. By the seventh, a shared garden. Nothing is forgiven. Something else is begun.",
+          l: "Reconciliation is mostly persistence." },
+    zh: { meta: "工作坊 · 和解", t: "两边的人，同一张桌子",
+          n: "两个社群——一方失去土地，一方获得土地——已是第七年坐到一张桌子前。前三年是争吵；第四年是冷漠的沉默；第五年，居然出现了玩笑；到了第七年，是一座共有的花园。谁都没有原谅谁，但别的什么开始了。",
+          l: "和解，大多数时候，是「坚持」。" } },
+  { en: { meta: "Coast · Restoration", t: "The Returning Reef",
+          n: "Over fifteen years, a coastal community installs reef structures, stops the worst runoff, and limits fishing in a small zone. Fish return — first to the protected zone, then to neighbouring waters. The fishery, surprisingly, becomes more, not less, productive.",
+          l: "Sometimes the most productive thing to do is leave a small thing alone." },
+    zh: { meta: "海岸 · 修复", t: "回来的礁体",
+          n: "在十五年里，一个沿海社区放下礁盘结构，止住最严重的径流，并在小范围内限制了捕捞。鱼群先回到保护区，再回到邻近水域。出乎意料地，渔业不仅没有萎缩，反而更丰收了。",
+          l: "有时候，最高产的做法，是「让一小块地方先安静下来」。" } }
+];
+
+/* ---------- 9. RESOURCES ---------- */
+const RES_CATS = [
+  { id: "Read",     en: "Read",     zh: "阅读" },
+  { id: "Watch",    en: "Watch",    zh: "观看" },
+  { id: "Practice", en: "Practice", zh: "练习" },
+  { id: "Teach",    en: "Teach",    zh: "教学" },
+  { id: "Discuss",  en: "Discuss",  zh: "讨论" },
+  { id: "Build",    en: "Build",    zh: "建造" }
+];
+const RESOURCES = [
+  { cat: "Read", diff: "beginner", time: { v: 30, u: "minutes" },
+    en: { t: "A short essay on long-term thinking", d: "A 30-minute read that recalibrates your sense of time from quarters to centuries." },
+    zh: { t: "一篇关于长期思考的短文", d: "三十分钟的阅读，把你的时间感从「季度」校准到「世纪」。" } },
+  { cat: "Read", diff: "intermediate", time: { v: 6, u: "hours" },
+    en: { t: "A history of the climate problem", d: "How we discovered the greenhouse effect, why it took so long, and what it teaches about institutional knowledge." },
+    zh: { t: "一部气候问题的历史", d: "我们如何发现温室效应、为何花了这么久，以及它对「制度性认识」的启示。" } },
+  { cat: "Read", diff: "advanced", time: { v: 3, u: "weeks" },
+    en: { t: "Foundational text on civic ethics", d: "A patient, deep reading list — moral philosophy from multiple traditions, paired with modern commentary." },
+    zh: { t: "公民伦理的奠基文本", d: "一份耐心的、深入的书单——多元传统的道德哲学，配以现代评注。" } },
+  { cat: "Watch", diff: "beginner", time: { v: 18, u: "minutes" },
+    en: { t: "Earth from the ISS, full orbit", d: "A continuous loop of the planet's terminator. Best watched in silence." },
+    zh: { t: "国际空间站上的一圈地球", d: "晨昏圈缓缓划过地球的一圈连续画面。建议静默观看。" } },
+  { cat: "Watch", diff: "intermediate", time: { v: 90, u: "minutes" },
+    en: { t: "A documentary on cooperative economies", d: "How worker-owned firms, mutual societies, and platform cooperatives actually work." },
+    zh: { t: "一部关于合作经济的纪录片", d: "工人所有制企业、共济社、平台合作社实际上如何运作。" } },
+  { cat: "Watch", diff: "advanced", time: { v: 4, u: "hours" },
+    en: { t: "Lecture series on AI governance", d: "Slow, careful talks from interdisciplinary scholars — not the conference-circuit hot takes." },
+    zh: { t: "AI 治理讲座系列", d: "跨学科学者缓慢、细致的讲座——不是会议「热搜」式的速谈。" } },
+  { cat: "Practice", diff: "beginner", time: { v: 10, u: "minutes" },
+    en: { t: "Daily news diet review", d: "Once a week, ask: which sources actually changed my mind, and which only confirmed it?" },
+    zh: { t: "每周新闻饮食回顾", d: "每周问自己一次：哪些来源真的改变了我的看法，哪些只是巩固了它？" } },
+  { cat: "Practice", diff: "intermediate", time: { v: 30, u: "minutes" },
+    en: { t: "A structured journaling practice", d: "Three prompts a day for one month: what I learned, what I doubt, what I would do differently." },
+    zh: { t: "结构化日记练习", d: "一个月，每天三道提示：今天我学到了什么、我怀疑什么、我会做出哪些不同。" } },
+  { cat: "Practice", diff: "advanced", time: { v: 1, u: "lifelong" },
+    en: { t: "An ongoing civic apprenticeship", d: "Pick one institution — a board, a co-op, a faith community — and stay for ten years." },
+    zh: { t: "持续的公民学徒制", d: "选一个机构——理事会、合作社、信仰团体——留下十年。" } },
+  { cat: "Teach", diff: "beginner", time: { v: 60, u: "minutes" },
+    en: { t: "One topic, one friend, one hour", d: "Teach one person one thing you know well. Pay attention to what you didn't actually understand." },
+    zh: { t: "一个话题，一位朋友，一个小时", d: "把你最熟的一件事教给一个人。留意你其实没真正搞懂的部分。" } },
+  { cat: "Teach", diff: "intermediate", time: { v: 8, u: "weeks" },
+    en: { t: "A small evening class", d: "Run a free, eight-week course in your home or library on something that matters." },
+    zh: { t: "一个小型夜间班", d: "在家中或图书馆，办一个免费的、八周的课程，主题是真正重要的事。" } },
+  { cat: "Discuss", diff: "beginner", time: { v: 1, u: "hours" },
+    en: { t: "Long-table dinner", d: "Six people, one question, no phones, two hours. Make this a habit." },
+    zh: { t: "长桌晚餐", d: "六个人，一个问题，不看手机，两个小时。把它变成一个习惯。" } },
+  { cat: "Discuss", diff: "intermediate", time: { v: 3, u: "hours" },
+    en: { t: "Deliberative town meeting", d: "Help organize one. Pick a real local question. Use a structured format. Document the outcome." },
+    zh: { t: "审议式市民大会", d: "帮忙组织一场。挑一个真实的本地问题。使用结构化形式。把结果记录下来。" } },
+  { cat: "Build", diff: "beginner", time: { v: 4, u: "hours" },
+    en: { t: "A neighborhood resource map", d: "Walk your area; map shared resources. Print it. Hand it out. Update it next year." },
+    zh: { t: "一张邻里资源地图", d: "走一遍你住的地方，绘出共享资源。打印它。分发给邻居。明年更新它。" } },
+  { cat: "Build", diff: "intermediate", time: { v: 6, u: "weeks" },
+    en: { t: "A small open-source civic tool", d: "Build one boring but useful thing — a transit-time visualizer, a permit-reminder bot, a vacancy map." },
+    zh: { t: "一件小型开源公民工具", d: "做一件「无趣但有用」的事——通勤时间可视化、办证提醒机器人、空置物业地图。" } },
+  { cat: "Build", diff: "advanced", time: { v: 1, u: "lifelong" },
+    en: { t: "An institution that outlives you", d: "The hardest, slowest building. A school. A clinic. A research group. A trust. Aim for 50 years." },
+    zh: { t: "一个比你活得更久的机构", d: "最难、最慢的「建造」。一所学校。一家诊所。一个研究小组。一个信托。把目标定在五十年。" } }
+];
+
+/* ---------- 10. FAQ ---------- */
+const FAQS = [
+  { en: { q: "Why does this website exist?",
+          a: "Because most sites are tuned to the next quarter, and the most consequential questions facing humanity unfold over decades and centuries. The atlas is a small attempt to make long-term thinking feel beautiful, accessible, and ordinary." },
+    zh: { q: "这个网站为何存在？",
+          a: "因为大多数网站为「下一个季度」服务，而人类面临的最关键问题，在以几十年、几个世纪为单位地展开。这本图谱是一次小小的尝试——让长期思考既美、又可及、又日常。" } },
+  { en: { q: "Is the data live?",
+          a: "No. The dashboard is illustrative sample data, intentionally rounded and directionally accurate. We did this on purpose: this site is a place to think with, not a real-time tracker." },
+    zh: { q: "数据是实时的吗？",
+          a: "不是。仪表板上的数据是示意性样本数据——刻意取整，方向准确。我们这样做是有意的：这个站点是用来思考的，不是一台实时追踪器。" } },
+  { en: { q: "How does language switching work?",
+          a: "All visible text is stored in two parallel dictionaries — English and Chinese — and re-rendered when you press EN or 中文. No reload, no server call, no external translation API." },
+    zh: { q: "语言切换是怎么实现的？",
+          a: "所有可见文本都存放在两份并行的字典里——英文与中文——按下 EN 或「中文」时即时重渲染。无需刷新、无需服务器调用、不调用任何外部翻译 API。" } },
+  { en: { q: "Are my reflections stored anywhere?",
+          a: "No. The reflection wall lives only in your browser tab. Closing the tab clears it. There is no database, no analytics on the text, and no account system. The privacy promise is structural: there is nowhere for your words to go." },
+    zh: { q: "我写在反思墙上的内容会被保存吗？",
+          a: "不会。反思墙只存在于你当前的浏览器页签里。关闭页签即清除。没有数据库、不对文本做任何分析、没有账号系统。这是结构上的隐私承诺：你的话根本没有「可去」的地方。" } },
+  { en: { q: "How should I use the action planner?",
+          a: "Pick the topics that genuinely interest you — three to five is a good number. Don't try to take on every cause. The atlas favours one finished action over five abandoned ones." },
+    zh: { q: "我该怎么使用行动计划工具？",
+          a: "选你真正关心的话题——三到五个比较合适。不要试图把每一项议题都扛起来。一项做完的小行动，胜过五项半途而废的大计划。" } },
+  { en: { q: "Why does long-term thinking matter?",
+          a: "Most of the goods we depend on — clean air, working democracies, stable climate, scientific knowledge, antibiotics — were built by people working on timescales longer than their own careers. We owe the same back." },
+    zh: { q: "长期思考为什么重要？",
+          a: "我们今天依赖的大多数好东西——洁净的空气、运转的民主、稳定的气候、科学知识、抗生素——都是由「在比自己职业生涯更长的时间尺度上工作的人」建起来的。我们也欠未来一份同样的工作。" } },
+  { en: { q: "How can students use this site?",
+          a: "As a research starting point, a class discussion seed, or an end-of-term reflection prompt. Teachers are welcome to print sections, remix the action planner into a classroom exercise, or use the timeline as a wall poster." },
+    zh: { q: "学生如何使用这个站点？",
+          a: "可以作为研究入口、课堂讨论的种子，或学期末的反思练习。欢迎老师打印部分章节、把行动计划改造成课堂练习，或把时间线做成墙报。" } },
+  { en: { q: "How can communities use this site?",
+          a: "Run an evening with neighbours around one challenge card. Use a future scenario as a planning prompt for a town. Adapt the resource library for a local newsletter. The atlas is meant to be quoted, remixed, and walked through together." },
+    zh: { q: "社区如何使用这个站点？",
+          a: "围绕一张「挑战卡」举办一次邻里晚会。把一个「未来情境」作为本地规划的起点。把资源馆改写成社区简报。图谱的本意，就是让人引用、改编、并共同走过。" } }
+];
+
+/* ============================================================
+   STATE & BOOTSTRAP
+   ============================================================ */
+let lang = 'en';
+const planSelected = new Set();
+let activeFilter = 'all';
+
+const $ = sel => document.querySelector(sel);
+const $$ = sel => Array.from(document.querySelectorAll(sel));
+const t = key => (I18N[lang][key] !== undefined ? I18N[lang][key] : I18N.en[key] || key);
+
+/* ---------- 11. RENDER FUNCTIONS ---------- */
+function renderStaticI18n() {
+  document.documentElement.lang = lang === 'zh' ? 'zh' : 'en';
+  $$('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+  $$('[data-i18n-html]').forEach(el => { el.innerHTML = t(el.dataset.i18nHtml || el.getAttribute('data-i18n-html')); });
+  $('#reflectionInput').setAttribute('placeholder', t('wl.placeholder'));
+}
+
+function renderChallenges() {
+  const grid = $('#challengeGrid');
+  grid.innerHTML = '';
+  CHALLENGES.forEach((c, i) => {
+    const data = c[lang];
+    const el = document.createElement('article');
+    el.className = 'challenge-card';
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+    el.setAttribute('aria-label', data.title);
+    el.innerHTML = `
+      <div class="challenge-icon" aria-hidden="true">${c.icon}</div>
+      <h3>${data.title}</h3>
+      <p class="desc">${data.desc}</p>
+      <div class="meters">
+        <div class="meter">
+          <div class="meter-label">${t('ch.severity')}</div>
+          <div class="meter-bar"><div class="meter-fill fill-severity" style="width:${c.severity}%"></div></div>
+        </div>
+        <div class="meter">
+          <div class="meter-label">${t('ch.opportunity')}</div>
+          <div class="meter-bar"><div class="meter-fill fill-opportunity" style="width:${c.opportunity}%"></div></div>
+        </div>
+      </div>
+      <div class="challenge-q">${data.q}</div>
+      <div class="more">${t('ch.more')}</div>
+    `;
+    el.addEventListener('mousemove', (ev) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', ((ev.clientX - r.left) / r.width * 100) + '%');
+      el.style.setProperty('--my', ((ev.clientY - r.top) / r.height * 100) + '%');
+    });
+    el.addEventListener('click', () => openChallenge(c));
+    el.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openChallenge(c); } });
+    grid.appendChild(el);
+  });
+}
+
+function openChallenge(c) {
+  const data = c[lang];
+  $('#modalBody').innerHTML = `
+    <h3 id="modalTitle">${data.title}</h3>
+    <div class="meta-pills">
+      <span class="pill">${t('ch.severity')} · ${c.severity}</span>
+      <span class="pill">${t('ch.opportunity')} · ${c.opportunity}</span>
+    </div>
+    <p class="lede" style="font-size:16px;">${data.desc}</p>
+    <p style="font-family: var(--serif); font-style: italic; color: var(--gold-soft); border-left:2px solid var(--gold); padding-left:14px; margin: 18px 0;">${data.q}</p>
+    <div class="deep">${data.deep}</div>
+  `;
+  $('#modal').classList.add('open');
+  $('#modalClose').focus();
+}
+
+function closeModal() { $('#modal').classList.remove('open'); }
+
+function renderTimeline() {
+  const track = $('#timelineTrack');
+  track.innerHTML = '';
+  TIMELINE.forEach((m, i) => {
+    const data = m[lang];
+    const item = document.createElement('div');
+    item.className = 'tl-item' + (i === 0 ? ' active' : '');
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+    item.innerHTML = `
+      <span class="dot"></span>
+      <div class="tl-year">${m.year}</div>
+      <div class="tl-title">${data.t}</div>
+      <div class="tl-snippet">${data.s}</div>
+    `;
+    item.addEventListener('click', () => activateTimeline(i));
+    item.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); activateTimeline(i); } });
+    track.appendChild(item);
+  });
+  activateTimeline(0);
+}
+
+function activateTimeline(i) {
+  $$('.tl-item').forEach((n, idx) => n.classList.toggle('active', idx === i));
+  const m = TIMELINE[i]; const data = m[lang];
+  $('#timelineDetail').innerHTML = `
+    <div class="year-big">${m.year}</div>
+    <h3>${data.t}</h3>
+    ${data.d}
+  `;
+}
+
+function renderScenarios() {
+  const grid = $('#scenarioGrid');
+  grid.innerHTML = '';
+  SCENARIOS.forEach(s => {
+    const data = s[lang];
+    const el = document.createElement('article');
+    el.className = 'scenario ' + s.cls;
+    el.innerHTML = `
+      <div class="tag">${s.tag}</div>
+      <h3>${data.title}</h3>
+      <p class="s-desc">${data.desc}</p>
+      <div class="s-section">
+        <h4>${t('sc.warning')}</h4>
+        <ul>${data.warn.map(x => `<li>${x}</li>`).join('')}</ul>
+      </div>
+      <div class="s-section">
+        <h4>${t('sc.hopeful')}</h4>
+        <ul>${data.hope.map(x => `<li>${x}</li>`).join('')}</ul>
+      </div>
+      <div class="s-section">
+        <h4>${t('sc.indiv')}</h4>
+        <ul>${data.ind.map(x => `<li>${x}</li>`).join('')}</ul>
+      </div>
+      <div class="s-section">
+        <h4>${t('sc.inst')}</h4>
+        <ul>${data.inst.map(x => `<li>${x}</li>`).join('')}</ul>
+      </div>
+    `;
+    grid.appendChild(el);
+  });
+}
+
+function renderPrinciples() {
+  const grid = $('#principleGrid');
+  grid.innerHTML = '';
+  PRINCIPLES.forEach((p, i) => {
+    const data = p[lang];
+    const el = document.createElement('article');
+    el.className = 'principle';
+    el.innerHTML = `
+      <span class="num">${String(i + 1).padStart(2, '0')}</span>
+      <h3>${data.t}</h3>
+      <p>${data.b}</p>
+      <div class="ex"><strong>${t('pr.example')}.</strong> ${data.ex}</div>
+    `;
+    grid.appendChild(el);
+  });
+}
+
+function renderInterests() {
+  const grid = $('#interestGrid');
+  grid.innerHTML = '';
+  INTERESTS.forEach(i => {
+    const el = document.createElement('label');
+    el.className = 'interest';
+    el.innerHTML = `
+      <input type="checkbox" data-id="${i.id}" ${planSelected.has(i.id) ? 'checked' : ''} />
+      <span>${i[lang]}</span>
+    `;
+    el.querySelector('input').addEventListener('change', (ev) => {
+      const id = ev.target.dataset.id;
+      if (ev.target.checked) planSelected.add(id); else planSelected.delete(id);
+    });
+    grid.appendChild(el);
+  });
+}
+
+function generatePlan() {
+  const r = $('#planResult');
+  if (planSelected.size === 0) {
+    r.innerHTML = `<p style="color: var(--gold-soft); font-family: var(--serif); font-style: italic;">${t('pl.empty')}</p>`;
+    r.classList.add('shown');
+    return;
+  }
+  const ids = Array.from(planSelected);
+  // Pick one interest at random per slot, but keep deterministic-ish via combining
+  const pick = () => ids[Math.floor(Math.random() * ids.length)];
+  const slots = [
+    { key: 'today',  icon: '☀', label: t('pl.today') },
+    { key: 'week',   icon: '✦', label: t('pl.week') },
+    { key: 'month',  icon: '☾', label: t('pl.month') },
+    { key: 'learn',  icon: '✎', label: t('pl.learn') },
+    { key: 'talk',   icon: '✻', label: t('pl.talk') }
+  ];
+  const used = new Set();
+  const plan = slots.map(s => {
+    let id = pick(); let attempts = 0;
+    while (used.has(id) && attempts < 8 && ids.length > 1) { id = pick(); attempts++; }
+    used.add(id);
+    const text = (PLANS[id][lang] || PLANS[id].en)[s.key];
+    return { ...s, text };
+  });
+  r.innerHTML = plan.map(p => `
+    <div class="plan-row">
+      <div class="plan-icon" aria-hidden="true">${p.icon}</div>
+      <div class="plan-cell">
+        <h4>${p.label}</h4>
+        <p>${p.text}</p>
+      </div>
+    </div>
+  `).join('');
+  r.classList.add('shown');
+}
+
+function renderDashboard() {
+  const grid = $('#dashGrid');
+  grid.innerHTML = '';
+  METRICS.forEach(m => {
+    const data = m[lang];
+    const fill = m.id === 'poverty' ? (100 - m.value) : m.value;
+    const el = document.createElement('article');
+    el.className = 'dash-card';
+    el.innerHTML = `
+      <h4>${data.t}</h4>
+      <div class="figure"><span data-counter="${m.value}">0</span><span class="unit">${m.unit}</span></div>
+      <div class="delta ${m.down ? 'down' : ''}">${m.delta}</div>
+      <div class="bar-mini"><div class="bar-mini-fill" data-target="${fill}"></div></div>
+      <p class="ctx">${data.c}</p>
+    `;
+    grid.appendChild(el);
+  });
+  // Trigger counter & bar animations when in view
+  startCounters();
+}
+
+let countersStarted = false;
+function startCounters() {
+  if (countersStarted) return;
+  const dash = $('#dashboard');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        countersStarted = true;
+        $$('[data-counter]').forEach(node => {
+          const target = parseFloat(node.dataset.counter);
+          const dur = 1400;
+          const start = performance.now();
+          const tick = (now) => {
+            const p = Math.min(1, (now - start) / dur);
+            const v = target * (1 - Math.pow(1 - p, 3));
+            node.textContent = Number.isInteger(target) ? Math.round(v) : v.toFixed(1);
+            if (p < 1) requestAnimationFrame(tick);
+            else node.textContent = target;
+          };
+          requestAnimationFrame(tick);
+        });
+        $$('.bar-mini-fill').forEach(b => {
+          const tgt = parseFloat(b.dataset.target);
+          requestAnimationFrame(() => { b.style.width = tgt + '%'; });
+        });
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  io.observe(dash);
+}
+
+function renderStories() {
+  const grid = $('#storyGrid');
+  grid.innerHTML = '';
+  STORIES.forEach(s => {
+    const data = s[lang];
+    const el = document.createElement('article');
+    el.className = 'story';
+    el.innerHTML = `
+      <div class="meta">${data.meta}</div>
+      <h3>${data.t}</h3>
+      <p class="narrative">${data.n}</p>
+      <div class="lesson"><strong>${t('st.lesson')}:</strong> ${data.l}</div>
+    `;
+    grid.appendChild(el);
+  });
+}
+
+function renderResources() {
+  const bar = $('#filterBar');
+  bar.innerHTML = '';
+  const allBtn = document.createElement('button');
+  allBtn.className = 'filter-btn' + (activeFilter === 'all' ? ' active' : '');
+  allBtn.textContent = t('rs.all');
+  allBtn.dataset.cat = 'all';
+  bar.appendChild(allBtn);
+  RES_CATS.forEach(c => {
+    const b = document.createElement('button');
+    b.className = 'filter-btn' + (activeFilter === c.id ? ' active' : '');
+    b.textContent = c[lang];
+    b.dataset.cat = c.id;
+    bar.appendChild(b);
+  });
+  bar.querySelectorAll('.filter-btn').forEach(b => {
+    b.addEventListener('click', () => { activeFilter = b.dataset.cat; renderResources(); });
+  });
+  const grid = $('#resourceGrid');
+  grid.innerHTML = '';
+  RESOURCES.filter(r => activeFilter === 'all' || r.cat === activeFilter).forEach(r => {
+    const data = r[lang];
+    const cat = RES_CATS.find(c => c.id === r.cat)[lang];
+    const tu = t('time.' + r.time.u);
+    const el = document.createElement('article');
+    el.className = 'resource';
+    el.innerHTML = `
+      <div class="top">
+        <span class="cat">${cat}</span>
+        <span class="time">${r.time.v} ${tu}</span>
+      </div>
+      <h3>${data.t}</h3>
+      <p class="desc">${data.d}</p>
+      <div class="diff">${t('diff.' + r.diff)}</div>
+    `;
+    grid.appendChild(el);
+  });
+}
+
+function renderFAQ() {
+  const list = $('#faqList');
+  list.innerHTML = '';
+  FAQS.forEach(f => {
+    const data = f[lang];
+    const d = document.createElement('details');
+    d.className = 'faq';
+    d.innerHTML = `<summary>${data.q}</summary><div class="ans">${data.a}</div>`;
+    list.appendChild(d);
+  });
+}
+
+/* ---------- 12. REFLECTION WALL ---------- */
+const reflections = [];
+function addReflection() {
+  const v = $('#reflectionInput').value.trim();
+  if (!v) return;
+  reflections.unshift(v);
+  $('#reflectionInput').value = '';
+  renderWall();
+}
+function renderWall() {
+  const feed = $('#wallFeed');
+  feed.innerHTML = reflections.map(r => `<div class="reflection">${escapeHtml(r)}</div>`).join('');
+}
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+}
+
+/* ---------- 13. STAR FIELD ---------- */
+function startStarfield() {
+  const c = document.getElementById('stars');
+  const ctx = c.getContext('2d');
+  let w, h, stars;
+  const resize = () => {
+    w = c.width = window.innerWidth * devicePixelRatio;
+    h = c.height = window.innerHeight * devicePixelRatio;
+    c.style.width = window.innerWidth + 'px';
+    c.style.height = window.innerHeight + 'px';
+    const count = Math.min(180, Math.floor((w * h) / 28000));
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.4 + 0.2,
+      a: Math.random() * 0.6 + 0.2,
+      tw: Math.random() * 2 + 0.5,
+      ph: Math.random() * Math.PI * 2
+    }));
+  };
+  const draw = (t) => {
+    ctx.clearRect(0, 0, w, h);
+    for (const s of stars) {
+      const alpha = s.a * (0.6 + 0.4 * Math.sin(t / 1000 * s.tw + s.ph));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(246, 241, 227, ${alpha})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  };
+  resize(); requestAnimationFrame(draw);
+  window.addEventListener('resize', resize);
+}
+
+/* ---------- 14. SCROLL PROGRESS ---------- */
+function bindScrollProgress() {
+  const bar = $('#progress');
+  const update = () => {
+    const h = document.documentElement;
+    const pct = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = pct + '%';
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
+/* ---------- 15. EVENTS ---------- */
+function bindEvents() {
+  $$('.lang-switch button').forEach(b => {
+    b.addEventListener('click', () => {
+      const newLang = b.dataset.lang;
+      if (newLang === lang) return;
+      lang = newLang;
+      $$('.lang-switch button').forEach(x => {
+        const active = x.dataset.lang === lang;
+        x.classList.toggle('active', active);
+        x.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      renderAll();
+    });
+  });
+
+  $('#modalClose').addEventListener('click', closeModal);
+  $('#modal').addEventListener('click', (e) => { if (e.target.id === 'modal') closeModal(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && $('#modal').classList.contains('open')) closeModal();
+  });
+
+  $('#genPlan').addEventListener('click', generatePlan);
+  $('#clearPlan').addEventListener('click', () => {
+    planSelected.clear();
+    renderInterests();
+    $('#planResult').classList.remove('shown');
+    $('#planResult').innerHTML = '';
+  });
+
+  $('#submitReflection').addEventListener('click', addReflection);
+  $('#reflectionInput').addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') addReflection();
+  });
+
+  $('#intensityBtn').addEventListener('click', () => {
+    document.body.classList.toggle('calm');
+  });
+}
+
+/* ---------- 16. RENDER ALL ---------- */
+function renderAll() {
+  renderStaticI18n();
+  renderChallenges();
+  renderTimeline();
+  renderScenarios();
+  renderPrinciples();
+  renderInterests();
+  renderDashboard();
+  renderStories();
+  renderResources();
+  renderFAQ();
+  renderWall();
+}
+
+/* ---------- 17. INIT ---------- */
+window.addEventListener('DOMContentLoaded', () => {
+  renderAll();
+  bindEvents();
+  bindScrollProgress();
+  startStarfield();
+});
+</script>
+</body>
+</html>
